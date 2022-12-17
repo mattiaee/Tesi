@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2022.12.17)  17 DEC 2022 16:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.12) (preloaded format=pdflatex 2022.12.17)  17 DEC 2022 21:13
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1333,8 +1333,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 22--23
 
 [3
 
-] [4]
-<immagini//gantt.png, id=159, 424.2249pt x 88.8921pt>
+]
+Underfull \hbox (badness 10000) in alignment at lines 73--73
+[][] 
+ []
+
+[4]
+<immagini//gantt.png, id=181, 424.2249pt x 88.8921pt>
 File: immagini//gantt.png Graphic file (type png)
 <use immagini//gantt.png>
 Package pdftex.def Info: immagini//gantt.png  used on input line 102.
@@ -1353,12 +1358,11 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-<immagini//usecase/scenario-principale.png, id=169, 463.13025pt x 236.082pt>
-File: immagini//usecase/scenario-principale.png Graphic file (type png)
-<use immagini//usecase/scenario-principale.png>
-Package pdftex.def Info: immagini//usecase/scenario-principale.png  used on input line 20.
-(pdftex.def)             Requested size: 334.79773pt x 170.66333pt.
-[7 <./immagini//usecase/scenario-principale.png>] [8] [9] [10]) (capitoli/progettazione-codifica.tex [11] [12
+(capitoli/usecase/UC1.tex [7] [8] [9]) (capitoli/usecase/UC2.tex
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[10] [11]) (capitoli/usecase/UC3.tex [12]) (capitoli/usecase/UC4.tex [13]) (capitoli/usecase/UC5.tex) (capitoli/usecase/UC6.tex [14] [15]) [16]) (capitoli/progettazione-codifica.tex [17] [18
 
 ]
 Capitolo 4.
@@ -1367,12 +1371,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--11
 
  []
 
-[13] [14]) [15] [16
+[19] [20]) [21] [22
 
 ]
 No file tesi.acr.
 No file tesi.gls.
-(sezioni/bibliografia.tex [17] [18
+(sezioni/bibliografia.tex [23] [24
 
 ]
 
@@ -1387,7 +1391,7 @@ Package biblatex Warning: Type 'online' not found on input line 17.
 
 LaTeX Warning: Empty bibliography on input line 17.
 
-) [19
+) [25
 
 ] (tesi.aux)
 
@@ -1403,11 +1407,11 @@ Package logreq Info: Writing requests to 'tesi.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 38228 strings out of 475281
- 685560 string characters out of 2773592
- 1492176 words of memory out of 3000000
- 58757 multiletter control sequences out of 15000+600000
- 576369 words of font info for 158 fonts, out of 8000000 for 9000
+ 38315 strings out of 475281
+ 686831 string characters out of 2773592
+ 1494172 words of memory out of 3000000
+ 58772 multiletter control sequences out of 15000+600000
+ 577962 words of font info for 176 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  91i,10n,125p,2271b,2528s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
@@ -1417,9 +1421,9 @@ pdfTeX warning (dest): name{glo:uml} has been referenced but does not exist, rep
 pdfTeX warning (dest): name{glo:api} has been referenced but does not exist, replaced by a fixed one
 
 {C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx8.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx9.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr6.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr8.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr9.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri12.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro12.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsso10.pfb><C:/Users/utente/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb>
-Output written on tesi.pdf (29 pages, 636296 bytes).
+Output written on tesi.pdf (35 pages, 645452 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 105 named destinations out of 1000 (max. 500000)
- 65764 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 502 PDF objects out of 1000 (max. 8388607)
+ 125 named destinations out of 1000 (max. 500000)
+ 65807 words of extra memory for PDF output out of 74296 (max. 10000000)
 
