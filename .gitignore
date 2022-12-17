@@ -1,0 +1,16 @@
+*.acn
+*.xmpi
+*.log
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.glo
+*.glsdefs
+*.lot
+*.run.xml
+*.gz
+*.toc
+*.xmpdata
