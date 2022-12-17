@@ -1,0 +1,9 @@
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'tesi.blg'
+[130] biber-MSWIN64:340> INFO - === 
+[171] Biber.pm:418> INFO - Reading 'tesi.bcf'
+[290] Biber.pm:975> INFO - Using all citekeys in bib section 0
+[307] Biber.pm:4401> INFO - Processing section 0
+[324] Biber.pm:4592> INFO - Looking for bibtex file 'bibliografia.bib' for section 0
+[617] Utils.pm:410> ERROR - Cannot find 'bibliografia.bib'!
+[617] Biber.pm:135> INFO - ERRORS: 1
