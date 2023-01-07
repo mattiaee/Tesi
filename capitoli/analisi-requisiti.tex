@@ -21,6 +21,8 @@ Essendo il progetto finalizzato alla creazione di un tool per l'automazione di u
 \input{capitoli/usecase/UC4}
 \input{capitoli/usecase/UC5}
 \input{capitoli/usecase/UC6}
+\input{capitoli/usecase/UC7}
+\input{capitoli/usecase/UC8}
 
 \section{Tracciamento dei requisiti}
 
@@ -34,44 +36,40 @@ Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
   \item[V =] di vincolo
   \item[N =] obbligatorio (necessario)
   \item[D =] desiderabile
-  \item[Z =] opzionale
+  \item[F =] facoltativo
 \end{enumerate}
 Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
 
 \newpage
 
-\begin{table}%
-  \caption{Tabella del tracciamento dei requisti funzionali}
-  \label{tab:requisiti-funzionali}
-  \begin{tabularx}{\textwidth}{lXl}
-    \hline\hline
-    \textbf{Requisito} & \textbf{Descrizione}                                            & \textbf{Use Case} \\
+\label{sec:requisiti}
+\begin{center}
+  \renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
+  \begin{tabular}{ |p{2cm}|p{9cm}|p{2cm}| }
+    %    \caption{Tabella del tracciamento dei requisti dello stage}
+    %    \label{tab:requisiti-stage}
     \hline
-    RFN-1              & L'interfaccia permette di configurare il tipo di sonde del test & UC1               \\
+    \textbf{Requisito} & \textbf{Descrizione}                           & \textbf{Use Case} \\
     \hline
-  \end{tabularx}
-\end{table}%
-
-\begin{table}%
-  \caption{Tabella del tracciamento dei requisiti qualitativi}
-  \label{tab:requisiti-qualitativi}
-  \begin{tabularx}{\textwidth}{lXl}
-    \hline\hline
-    \textbf{Requisito} & \textbf{Descrizione}                                                                                                       & \textbf{Use Case} \\
+    RFO-1              & autenticazione                                 & UC1               \\
     \hline
-    RQD-1              & Le prestazioni del simulatore hardware deve garantire la giusta esecuzione dei test e non la generazione di falsi negativi & -                 \\
+    RFO-2              & lettura dati da CD                             & UC2               \\
     \hline
-  \end{tabularx}
-\end{table}%
-
-\begin{table}%
-  \caption{Tabella del tracciamento dei requisiti di vincolo}
-  \label{tab:requisiti-vincolo}
-  \begin{tabularx}{\textwidth}{lXl}
-    \hline\hline
-    \textbf{Requisito} & \textbf{Descrizione}                                                        & \textbf{Use Case} \\
+    RFO-3              & visualizzazione dati ordinati per file         & UC3               \\
     \hline
-    RVO-1              & La libreria per l'esecuzione dei test automatici deve essere riutilizzabile & -                 \\
+    RFO-4              & visualizzazione dati ordinati per procedimenti & UC4               \\
     \hline
-  \end{tabularx}
-\end{table}%
+    RFO-5              & gestione dei Marker relativi al file           & UC3               \\
+    \hline
+    RFO-6              & gestione degli Interventi relativi al file     & UC3               \\
+    \hline
+    RFD-1              & upload procedimento                            & UC5               \\
+    \hline
+    RFF-2              & visualizzazione jobs                           & UC6               \\
+    \hline
+    RQD-1              & test di unità esaustivi                        & -                 \\
+    \hline
+    RFF-1              & riproduzione audio file                        & UC3.1             \\
+    \hline
+  \end{tabular}
+\end{center}

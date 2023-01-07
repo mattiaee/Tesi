@@ -1,0 +1,96 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../tesi.tex
+
+%**************************************************************
+\chapter{Progettazione}
+\label{cap:progettazione-codifica}
+%**************************************************************
+
+\intro{Breve introduzione al capitolo}\\
+
+%**************************************************************
+\section{Tecnologie}
+\label{sec:tecnologie-strumenti}
+
+Di seguito viene data una panoramica delle tecnologie utilizzate.
+
+\subsection*{Javascript}
+JavaScript è un linguaggio di programmazione orientato agli oggetti e agli eventi, comunemente utilizzato nella programmazione Web lato client per la creazione applicazioni web. L'intera applicazione è stata scritta con questo linguaggio.
+
+\subsection*{React}
+React è una libreria Javascript utilizzata per implementare interfacce utente (UI) lato frontend. React si basa sul concetto di component, idealmente è una libreria che permette di costruire i propri component come fossere degli elementi HTML del DOM per poi poterli riusare nell'intera applicazione.
+
+\subsection*{Redux \& Redux RTK}
+Redux è un contenitore dello stato per le applicazione Javascript. Viene usato per la gestione centralizzata dello stato delle applicazioni sviluppate in React Javascript. In particolare con la sua libreria Redux-Toolkit, permette una gestione dello stato semplice ed efficente.
+
+\subsection*{API rest}
+Descrizione Tecnologia 2
+
+\subsection*{JSON}
+Markup usato per la pubblicazione dei dati dell’API.
+
+\subsection*{MUI}
+Material UI è una libreria React open-source che permette di implementare i Google's Material Design. Essa comprende una collezione di componenti React precostruiti che possono essere facilmente adattati e messi in uso nella UI dell'applicazione.
+
+\subsection*{React Router}
+React Router è la libreria standard per il routing in React. Questa libreria permette la navigazione tra le varie viste dell'applicazione , permette di gestire le URL, e mantenere la sincronizzazione tra URL e viste.
+
+\subsection*{Docker}
+Docker è un sistema che permette di facilitare il deployment delle applicazioni.
+
+\subsection*{airbnb js guidelines} (???)
+Descrizione Tecnologia 2
+
+\subsection*{eslint} (???)
+
+%**************************************************************
+\subsection{Architettura dell'applicazione}
+L'architettura dell'applicazione era già stata progettata prima dello stage e in piccola parte già esistente.
+L'intero sistema si basa sull'interazione tra backend e frontend mediante API rest, con l'auito del gestore di file minIO utilizzato
+per la memorizzazione dei file che vengono caricati dell'utente. Il sistema presenta quindi la formazione client-server dove nel server
+risiede la parte backend dell'applicativo mentre invece i vari client rappresentano il frontend dell'applicativo.
+[disegno generale di front end back end api minio ecc ecc]
+\subsubsection*{Backend}
+Il backend è un applicazione a se stante scritta interamente in python, con architettura MVC (Model-View-Controller). Questa applicazione
+espone delle URL come endpoint per le chiamate REST del client frontend.
+\subsubsection*{Frontend}
+Il frontend dell'applicazione è la parte che è stata interamente implementata in oggetto allo stage, è l'interfaccia grafica
+presentata all'utente.
+\subsubsection*{APIrest}
+Le API rest sono il tramite tra le due applicazioni, vengono gestite nella parte di frontend con redux-tolkit, e interrogano
+il backend sugli appositi endpoint, per poi lasciare al frontend l'interpretazione del risultato. Sono state utilizzate chiamate di
+tipo GET e POST. Inoltre una particolare chiamata di tipo PUT viene effettuata dal frontend per l'upload dei file su minIO.
+\subsubsection*{MinIO}
+%**************************************************************
+\subsection{Architettura frontend}
+disegno del frontend redux react come lavorano
+Il frontend dell'applicazione è stato progettato come una single page application, che mantiene seprarazione tra lo stato e la
+user interface.
+\subsubsection*{React}
+\subsubsection*{Redux}
+\subsubsection*{React router}
+\subsubsection*{Mui}
+%**************************************************************
+\section{Progettazione}
+\label{sec:progettazione}
+viste implementate (jobs, proceeding view, file view), caricamento dati, upload dei dati, un po di come sono state pensate
+
+In sede di progettazione del frontend si è deciso di realizzarlo in javascript, e in particolare usando la libreria react, sfruttando a pieno il riutilizzo del codice che questa libreria permette agevolmente costruendo componenti.
+Lo stato del frontend è stato gestito in modo indipendente utilizzando redux, e redux toolkit per sfruttare le API quando è necessario comunicare con il backend.
+Per il routing è stata utilizzata la libreria apposita react-router che permette con semplicità di gestire le url e i link all'interno dell'applicazione senza dover usare strumenti esterni al linguaggio.
+Graficamente invece, si è scelto di usare MUI per mantenere un interfaccia molto intuitiva, semplice da usare, responsive e con tanti elemente già pronti per essere integrati con React.
+
+Redux permette di creare uno store, dove persistono tutti i dati che vogliamo gestire lato frontend, questo permette di non dover salvare i dati sul server e fare inutili e pesanti chimate ogni volta che si necessita di rappresentare questi dati.
+Lo store nel nostro caso particolare è stato usato per memorizzare lato frontend i "dati caricati dall'utente nella fase di caricamento dati da CD".
+
+1) store
+2) componenti
+3) integrazione componenti
+5) routing
+4) viste principali
+
+%**************************************************************
+\section{Design Pattern utilizzati}
+ (??????) tipo observer template se react lo usa... c'è una forma di MVVM in react+redux... posso citare MVC del back end o non frega niente a nessuno?
+

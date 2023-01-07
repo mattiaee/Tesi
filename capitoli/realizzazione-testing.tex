@@ -1,0 +1,32 @@
+% !TEX encoding = UTF-8
+% !TEX TS-program = pdflatex
+% !TEX root = ../tesi.tex
+
+%**************************************************************
+\chapter{Realizzazione e testing}
+\label{cap:progettazione-codifica}
+%**************************************************************
+
+\intro{Breve introduzione al capitolo}\\
+
+%**************************************************************
+
+\section{Codifica}
+Come ho agito in fase di codifica, cioè creazione dello store redux, creazione dell'api rtk, creazione dei vari componenti in react, integrazione dei componenti react, interazione tra componenti e stato/store test???
+eslint-airbnb style guide utilizzate come standard aziendale
+versionamento in gitlab regola aziendale 1 modifica 1 file 1 commit (nella situazione ideale), new file and delete file tutti sullo stesso commit purchè tutti dello stesso tipo
+big commit iniziali o di modifiche più sostanziose 1 file 1 commit
+
+Generalmente il flusso della codifica viene gestito in base allo sprint scrum, quindi lunedì retrospettiva su attività fatte, selezione delle attività da fare per lo scritp settimanale e si parte.
+il ticket passa dallo stato "da completare" allo stato "in corso"
+parlando di react che induce all'uso di componenti riutilizzabili, si è cercato di sfruttare il più possibile questo principio.
+creazione di un nuovo componente
+integrazione del componente nella vista / nelle viste
+creazione dello store redux
+creazione delle api redux-toolkit
+
+flusso di lavoro in gitlab, con branch flow.. merge requeste per quando si deve approvare qualche modifica, ticket che passa in stato "da verificare"
+se necessita di altre modifiche torna "in corso" altrimenti va in "completato"
+
+parallelismo tra flow di git usato e ticketing jira con metodo scrum
+documentazione nei ticket e nelle merge request di tutto quello che è stato fatto
