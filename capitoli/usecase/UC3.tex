@@ -2,10 +2,10 @@
 % !TEX TS-program = pdflatex
 % !TEX root = ../tesi.tex
 
-\subsection{UC3 - Visualizzazione dati ordinati per file}
+\subsection{UC3 - Visualizzazione file}
 \begin{itemize}
   \item \textbf{Identificativo}: UC3
-  \item \textbf{Nome}: visualizzazione dati ordinati per file
+  \item \textbf{Nome}: visualizzazione file
   \item \textbf{Descrizione grafica}:
 \end{itemize}
 
@@ -21,14 +21,29 @@
           \item \textit{Primari}: utente autorizzato
         \end{itemize}
   \item \textbf{Precondizione}: l'utente si trova sulla pagina per il caricamento dati, che ha già effettuato correttamente.
-  \item \textbf{Postcondizione}: l'utente visualizza i dati caricati sull'applicazione, ordinati per nome dei file.
-  \item \textbf{Scenario principale}: l'utente ha caricato correttamente i dati e questi vengono visualizzati ordinati per nome del file.
-  \item \textbf{Scenario secondario}: l'utente può riprodurre i file audio.
+  \item \textbf{Postcondizione}: l'utente visualizza i file e i relativi metadati caricati.
+  \item \textbf{Scenario principale}: l'utente ha caricato correttamente i dati, questi vengono visualizzati con una lista di file ognuno con i relativi metadati.
+  \item \textbf{Scenario secondario}: l'utente può visualizzare ed elaborare i metadati relativi ad ogni file \textbf{UC5}.
 \end{itemize}
 
-\subsubsection{UC3.1 - Riproduzione audio file}
+\subsubsection{UC3.1 - Visualizzazione lista file}
 \begin{itemize}
   \item \textbf{Identificativo}: UC3.1
+  \item \textbf{Nome}: visualizzazione lista file
+  \item \textbf{Descrizione grafica}: (approfondita in UC3)
+  \item \textbf{Attori}
+        \begin{itemize}
+          \item \textit{Primari}: utente autorizzato
+        \end{itemize}
+  \item \textbf{Precondizione}: l'utente si trova sulla pagina per il caricamento dati, che ha già effettuato correttamente.
+  \item \textbf{Postcondizione}: l'utente visualizza la lista dei file ognuno con i relativi metadati.
+  \item \textbf{Scenario principale}: l'utente visualizza la lista dei file e può visualizzare la lista dei metadati associati.
+  \item \textbf{Scenario secondario}: l'utente può riprodurre i file audio \textbf{UC3.1.1}.
+\end{itemize}
+
+\subsubsection{UC3.1.1 - Riproduzione audio file}
+\begin{itemize}
+  \item \textbf{Identificativo}: UC3.1.1
   \item \textbf{Nome}: riproduzione audio file
   \item \textbf{Descrizione grafica}: (approfondita in UC3)
   \item \textbf{Attori}

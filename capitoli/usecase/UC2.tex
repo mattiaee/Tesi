@@ -11,7 +11,7 @@
 
 \begin{figure}[h]
   \centering
-  %  \includegraphics[scale=0.50]{images/UC2.png}
+  \includegraphics[scale=1.4]{immagini/usecase/UC2.png}
   \caption{Descrizione grafica caso d'uso UC2}
 \end{figure}
 
@@ -21,12 +21,26 @@
           \item \textit{Primari}: utente autorizzato
         \end{itemize}
   \item \textbf{Precondizione}: l'utente autorizzato si trova nella pagina per il caricamento dei dati.
-  \item \textbf{Postcondizione}: l'utente visualizza i dati che ha caricato.
-  \item \textbf{Scenario principale}: l'utente premendo sull'apposito bottone può caricare i file contenuti nel CD di interesse.
-  \item \textbf{Scenario secondario}: il sistema riscontra un errore nella procedura di caricamento dei dati. (\textbf{UC2.1})
+  \item \textbf{Postcondizione}: l'utente ha caricato i dati da CD.
+  \item \textbf{Scenario principale}: l'utente premendo sull'apposito bottone può caricare i file contenuti nel CD di interesse e li visualizza (\textbf{UC3}).
 \end{itemize}
 
-\subsubsection{UC2.1 - Errore caricamento dati da CD}
+\subsubsection{UC2.1 - Caricamento dati da CD}
+\begin{itemize}
+  \item \textbf{Identificativo}: UC2.1
+  \item \textbf{Nome}: caricamento dati da CD
+  \item \textbf{Descrizione grafica}: (approfondita in UC2)
+  \item \textbf{Attori}
+        \begin{itemize}
+          \item \textit{Primari}: utente autorizzato
+        \end{itemize}
+  \item \textbf{Precondizione}: l'utente ha richiesto il caricamento di una cartella contenente i file del CD.
+  \item \textbf{Postcondizione}: i file sono stati caricati nell'applicazione.
+  \item \textbf{Scenario principale}: l'utente richiede il caricamento di una cartella contenente i file del CD premendo sull'apposito bottone.
+  \item \item \textbf{Scenario secondario}: il sistema riscontra un errore nella procedura di caricamento dei dati. (\textbf{UC2.1})
+\end{itemize}
+
+\subsubsection{UC2.1.1 - Errore caricamento dati da CD}
 \begin{itemize}
   \item \textbf{Identificativo}: UC2.1
   \item \textbf{Nome}: errore caricamento dati da CD
@@ -39,3 +53,4 @@
   \item \textbf{Postcondizione}: l'errore viene mostrato all'utente.
   \item \textbf{Scenario principale}: il sistema non è riuscito a gestire la richiesta di caricamento dei dati da parte dell'utente.
 \end{itemize}
+\newpage

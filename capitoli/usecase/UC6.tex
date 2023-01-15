@@ -11,7 +11,7 @@
 
 \begin{figure}[h]
   \centering
-  %  \includegraphics[scale=0.50]{images/UC6.png}
+  \includegraphics[scale=1.5]{immagini/usecase/UC6.png}
   \caption{Descrizione grafica caso d'uso UC6}
 \end{figure}
 
@@ -22,20 +22,35 @@
         \end{itemize}
   \item \textbf{Precondizione}: l'utente si trova all'interno dell'applicazione e vuole visualizzare la lista dei jobs.
   \item \textbf{Postcondizione}: l'utente visualizza la lista dei jobs.
-  \item \textbf{Scenario principale}: l'utente visualizza la lista dei jobs.
-  \item \textbf{Scenario secondario}: l'utente può visualizzare il dettaglio di un singolo job premendo sull'apposito link. (\textbf{UC6.1})
+  \item \textbf{Scenario principale}: l'utente può visualizza la lista dei jobs (\textbf{UC6.1}) con un piccolo riassunto delle informazioni principali di ognuno.
+  \item \textbf{Scenario secondario}: l'utente può visualizzare il dettaglio di un singolo job premendo sull'apposito link. (\textbf{UC6.2})
 \end{itemize}
 
-\subsubsection{UC6.1 - Visualizzazione dettaglio job}
+\subsubsection{UC6.1 - Visualizzazione lista dei job}
 \begin{itemize}
   \item \textbf{Identificativo}: UC6.1
+  \item \textbf{Nome}: visualizzazione lista dei job
+  \item \textbf{Descrizione grafica}: (approfondita in UC6)
+  \item \textbf{Attori}
+        \begin{itemize}
+          \item \textit{Primari}: utente autorizzato
+        \end{itemize}
+  \item \textbf{Precondizione}: l'utente ha premuto sull'apposito link per visualizzare la lista dei job.
+  \item \textbf{Postcondizione}: la lista dei job viene visualizzata.
+  \item \textbf{Scenario principale}: l'utente visualizza la lista dei job paginata e ordinata per ultimo caricato.
+\end{itemize}
+
+\subsubsection{UC6.1.2 - Visualizzazione dettaglio job}
+\begin{itemize}
+  \item \textbf{Identificativo}: UC6.2
   \item \textbf{Nome}: visualizzazione dettaglio job
   \item \textbf{Descrizione grafica}: (approfondita in UC6)
   \item \textbf{Attori}
         \begin{itemize}
           \item \textit{Primari}: utente autorizzato
         \end{itemize}
-  \item \textbf{Precondizione}: l'utente ha premuto sull'apposito link.
+  \item \textbf{Precondizione}: l'utente ha premuto sull'apposito link per visualizzare il dettaglio di un job.
   \item \textbf{Postcondizione}: il dettaglio del job viene visualizzato.
-  \item \textbf{Scenario principale}: l'utente visualizza tutti i dettagli del singolo job.
+  \item \textbf{Scenario principale}: l'utente visualizza tutte le informazioni riguardanti il job desiderato.
 \end{itemize}
+\newpage

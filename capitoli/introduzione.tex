@@ -21,12 +21,138 @@ citazione\footcite{womak:lean-thinking} \\
 
 %**************************************************************
 \section{L'azienda}
-Synthema Artificial Intelligence (S.AI) è una start-up innovativa che si occupa di ricerca, progettazione, sviluppo, commercializzazione e manutenzione di prodotti e servizi innovativi ad alto valore tecnologico, basati sull'Internet of Things, la blockchain e su tecniche di Intelligenza Artificiale (in particolare reti neurali profonde), per l'analisi integrata e la comprensione di dati multimodali da fonti eterogenee (linguaggio naturale sia scritto che parlato, audio, immagini, video, dati generati da sensori) e per la gestione dei workflow, sia nel settore pubblico che privato.
+
+Synthema Artificial Intelligence (S.AI) è una start-up innovativa che si occupa di ricerca, progettazione, sviluppo, commercializzazione e manutenzione di
+prodotti e servizi innovativi ad alto valore tecnologico, basati sull'Internet of Things, la blockchain e su tecniche di Intelligenza Artificiale
+(in particolare reti neurali profonde), per l'analisi integrata e la comprensione di dati multimodali da fonti eterogenee (linguaggio naturale sia scritto che
+parlato, audio, immagini, video, dati generati da sensori) e per la gestione dei workflow, sia nel settore pubblico che privato.
 
 %**************************************************************
-\section{L'idea}
+\section{Introduzione al progetto}
 
-Si è resa necessaria per l'azienda, la costruzione di un applicazione per il caricamento delle registrazioni audio, che vengono effettuate nelle aule di tribunale, verso un portale già esistente. Le registrazioni che vengono caricate, dispongono di vari metadati che possono essere usati per rendere il caricamento delle registrazioni stesse più veloce e semplice possibile.
+Lo stage svolto presso SAI aveva come scopo la creazione di un prototipo di piattaforma web/desktop per il caricamento delle registrazioni audio effettuate nelle aule di
+tribunale, con l'aiuto di alcuni metadata prodotti durante le medesime registrazioni. In particolare l'applicazione da sviluppare è divisa in due parti backend e frontend
+(spiegare meglio back e front) che comunicano tra loro mediante API rest (spiegare API). Lo stage si è focalizzato sullo sviluppo della parte frontend, avanzando di pari passo
+con lo sviluppo del  backend realizzata da altri membri del team di sviluppo. Per la realizzazione del frontend si è scelto di utilizzare Javascript con i framework React e Redux.
+
+  [fare merge dei due - secondo quello scritto nuovo] [valutare se iniziare da qui a introdurre i concetti di Metadati: Marker, Procedimenti, Interventi; Jobs]
+%**************************************************************
+\section{Introduzione al progetto}
+
+Il progetto nasce dalla necessità dell'azienda di creare un sistema semi-automatico per la creazione di particolari ticket. In particolare il sistema è rivolto ai lavoratori della aule di tribunale,
+nel nostro caso chiamati fonici, che dopo aver registrato la loro porzione di giornata nel tribunale di competenza, devono inserire tutti i dati relativi ai processi nel sistema di memorizzazione.
+I dati che vengono raccolti in aula sono registrati come tracce audio su dei CD, seguendo degli schemi abbastanza rigidiù. Queste tracce audio sono regolate da un file di testo, ove il fonico,
+seguendo gli stessi schemi delle registrazioni audio prende degli appunti su quanto sta accadendo in aula in quel momento.
+Un gruppo di dati che si riferisce ad un procedimento è quindi interpretato come ticket dai fonici, che ne devono inserire una grande quantità per ogni giornata lavorativa.
+Con questo progetto l'azienda intende risolvere il problema, dando la possibilità a questi lavoratori, di caricare i dati relativi ai procedimenti senza dover compilare nessun modulo
+per creare un ticket ma facendo in modo che questi, vengano automaticamente creati leggendo le tracce audio dei CD caricati e il file di testo che contiene gli appunti.
+
+%**************************************************************
+\section{Principali problematiche}
+
+Per questo progetto sorgono diverse problematiche che elenco di seguito:
+
+\begin{itemize}
+  \item \textbf{tecnologiche}: tutte le tecnologie da utilizzare necessitano di una fase di apprendimento perchè inizialmente risultano per lo più non conosciute
+  \item \textbf{argomento del progetto}: l'argomento del progetto, ossia le registrazioni delle aule di tribunale, è conosciuto solo in parte
+  \item \textbf{tipi di dati e metadati}: i dati e metadati contenuti nei vari file relativi alle registrazione sono molto eterogenei e una loro classificazione dettagliata risulta molto difficile
+\end{itemize}
+
+
+%**************************************************************
+\section{Soluzione scelta}
+
+Il progetto pone vari dubbi nella fase di analisi per scegliere la soluzione migliore, che sia allo stesso tempo veloce nel caricamento dei dati e nella creazione dei ticket ma allo
+stesso tempo che non perda informazioni importanti, visto la sensibilità dei dati trattati. Viene scelto per questo progetto di creare un'applicazione inizialmente web ma con la possibilità
+di renderla desktop in futuro. L'applicazione sarà formata da un backend che servirà per tenere traccia delle informazioni che realmente servono, e un frontend che servirà principalmente per la
+composizione delle informazioni da passare al backend. In questo modo ogni volta che un CD viene caricato non viene interamente mandato al server, ma rimane in gestione
+al frontend che ne elabora i dati e li gestisce seguendo le preferenze dell'utente, prima di passare solo i dati necessari al backend. Per la memorizzazione dei file invece
+la strada pensata in fase di analisi è l'utilizzo di un client (object-storage) esterno dove fare l'upload solo delle tracce audio necessarie.
+L'oggetto del progetto di stage è proprio la parte di frontend di questo sistema pensato per agevolare il lavoro dei collaboratori delle aule di tribunale.
+
+
+%**************************************************************
+\section{Descrizione del prodotto ottenuto}
+
+Il prodotto finale ottenuto si discosta leggermente da quello inizialmente pensato, infatti è stata soltanto abbozzata la costruzione del ticket vero e proprio per motivi legati alle tempistiche dello stage
+e per dare la precedenza agli obiettivi obbligatori e desiderabili dello stage stesso. L'applicazione finale risulta un buon punto di partenza per costruire la restante parte del prodotto.
+Il prodotto ottenuto ha come inizio l'autenticazione dell'utente con la maschera di login, in modo che l'accesso a tutte le operazioni sia consentito solo agli utenti autorizzati.
+L'applicazione nello stato finale presenta le seguenti funzionalità:
+\begin{itemize}
+  \item \textbf{caricamento dei dati}: l'utente può caricare i dati sull'applicazione scegliendo se caricare interi CD di registrazioni o singoli file, questa seconda funzionalità risulta molto utile nel caso
+        l'utente intenda aggiungere manualmente file che magari non sono presenti nel CD caricato in precedenza.
+  \item \textbf{viste dati caricati}: l'utente può scegliere di vedere i dati caricati ordinandoli sia per file sia per procedimento, quest'ultima risulta molto importante per l'utente finale perchè
+        può visualizzare le tracce audio caricate raggruppate per procedimento
+  \item \textbf{compilazione automatica form}: al caricamento del CD contenente le registrazioni i form relativi ai procedimenti vengono automaticamente compilati in modo da facilitare lìutente che deve solo controllarli
+  \item \textbf{riproduzione audio dei file}: nella pagina di visualizzazione dei file l'utente ha la possibilità di riprodurre ogni traccia audio caricata
+  \item \textbf{visulizzazione metadati del file}: grazie all'interpretazione dei metadati, per ogni file caricato è possibile vedere tutte le informazioni che ha a disposizione, nello specifico, l'utente può visualizzare tutti gli interventi e le annotazioni che sono state fatte
+  \item \textbf{caricamento dei file sul sistema}: dopo la revisione dei dati, quelli ritenuti validi possono essere facilmente caricati sul Backend
+  \item \textbf{riepilogo dati salvati}: l'utente può visulizzare la lista dei dati dei quali è già stato fatto l'upload e andare nel dettaglio di un singolo file per visualizzare più informazioni
+\end{itemize}
+
+
+%**************************************************************
+\section{Strumenti utilizzati}
+
+L'azienda usa un'infrastruttura già collaudata della quale fanno parte sistemi di versionamento del codice, strumenti per l'organizzazione del lavoro e per la comunicazione all'interno del gruppo di lavoro.
+Di suguito una panoramica dettagliata degli strumenti utilizzati per lavorare nel team di sviluppatori dell'azienda.
+
+\subsection*{slack}
+E lo strumento che viene usato per la collaborazione aziendale, permette di vedere lo stato degli utenti (sviluppatorei dell'azienda
+nel nostro caso) se disponibili o assenti al momento. Questa applicazione da la possibilità di comunicare singolarmente con gli altri
+partecipanti oppure in piccoli gruppi divisi per progetto. Permette in oltre la condivisione dei file, molto utile nelle
+comunicazioni veloci.
+
+\subsection*{Jira}
+Jira è lo strumento che l'azienda usa per l'organizzazione del lavoro. Permette di creare vari progetti, e per ogni progetto consente la
+creazione dei relativi ticket. In base alla metodologia di lavoro che si sceglie di utilizzare lo strumento permette di adottarla in tutto.
+Nel nostro caso la scelta aziendale è il metodo SCRUM e questo strumento consente la creazione degli sprint, è fornito di un backlog, ha
+una bacheca personalizzata per ogni utente che consente di vedere lo stato di avanzamento dei ticket di interesse. Inoltre consente di creare
+report sull'andamento degli sprint oppure su alcuni periodi, cosa molto utile per tracciare la guida nel miglioramento aziendale.
+
+\subsection*{Gitlab}
+Sistema di versionamento dei file di codice usato dall'azienda. Questo strumento si basa su git e consente tutte le operazioni di un repository git.
+I file vengono condivisi tra tutti gli svilupparori grazie a questo strumento, divisi in repository, uno per ogni progetto sul quale l'azienda lavora.
+La linea guida aziendale per l'iutilizzo del sistema GitLab si basa sul workflow denominato feature branching, questo sistema di lavoro
+prevede di lasciare il ramo principale (solitamente chiamato main) sempre pulito e con una versione funzionante e testata del prodotto, mentre invece
+quanto si vuole lavorare su una nuova feature si crea un nuova ramo partendo da quello principale e una volta che questa feature sarà pronta per essere
+revisionata e integrata con quella principale si chiederà una merge request di questo feature branch sul branch principale.
+Il mantenimento dei file di codice sul repository si basa sulla regola aziendale 1 modifica - 1 commit - 1 file, ovvero si predilige che ogni branch che lo sviluppatore crea per sviluppare la relativa feature
+sia composto da commit che riguardano soltato un file con la relativa modifica.
+
+\subsection*{VS Code}
+E l'IDE () di lavoro utilizzato per sviluppare il locale. Questo strumento è completo di tutto quello che serve per lo sviluppo del prodotto.
+Esso infatti consente di sviluppare nei linguaggi che interessano il progetto, aiutando con vari plugin per il riconoscimento del codice,
+aiutando così lo sviluppatore a lavorare più velocemente e in modo più intuitivo. Inoltre è competamente integrato con i sistemi di
+versionamento, in particolare nel nostro caso con GitLab. Oltre a queste funzionalità consente di utilizzare plugin per la pulizia del
+codice, che settati in maniera corretta permettono di rimanere sempre fedeli alle regole aziendali automaticamente ad ogni salvataggio.
+
+\subsection*{Jitsi}
+E lo strumento che l'azienda utilizza per le riunioni in videocall settimanali ma anche per quelle individuali che dovessero essere necessarie
+in qualsiasi momento.
+
+\subsection*{SCRUM}
+SCRUM è il framework che l'azienda segue per il lavoro in gruppo sui vari progetti. Questo framework molto diffuso per lo sviluppo software in
+team si basa su sprint di durata breve che mirano al completamento dei task assegnati, il ripetersi temporale di questi sprint porta l'avanzamento
+del prodotto. Nel nostro caso particolare quella che segue l'azienda è una versione personalizzata di questo framework. Il funzionamento è spiegato di seguito. \newline
+\begin{itemize}
+  \item Durata degli sprint: normalmente una settimana;
+  \item Meeting del lunedì:
+        \begin{itemize}
+          \item ognuno da una rapida panoramica per tenere tutti aggiornati su quello che ha svolto nella settimana precendente;
+          \item si discutono e assegnano i task che si trovavano nel backlog per lo sprint seguente;
+          \item rapida retrospettiva per valutazioni critiche dello sprint appena terminato;
+        \end{itemize}
+  \item Stati dei task da svolgere:
+        \begin{itemize}
+          \item da completare: nel corrente sprint ma nessuno ci sta ancora lavorando;
+          \item in corso: qualcuno sta lavorando a questo task;
+          \item pronto per la revisione: il task è stato completato, si attende che l'incaricato revisioni il codice e faccia il merge nel ramo principale;
+          \item completato: il task è stato revisionato e integrato nel ramo principale;
+          \item bloccato: per qualche ragione il task è bloccato, si scrive il motivo per il quale non può essere proseguito e se è necessario parlarne con qualcuno;
+          \item da posticipare: il task deve essere riposto nel backlog e ripianificato per un altro sprint;
+        \end{itemize}
+\end{itemize}
 
 %**************************************************************
 \section{Organizzazione del testo}

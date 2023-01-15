@@ -4,14 +4,33 @@
 
 %**************************************************************
 \chapter{Realizzazione e testing}
-\label{cap:progettazione-codifica}
+\label{cap:realiazzazione-testing}
 %**************************************************************
 
 \intro{Breve introduzione al capitolo}\\
 
 %**************************************************************
+\section{Progettazione}
+\label{sec:progettazione}
+viste implementate (jobs, proceeding view, file view), caricamento dati, upload dei dati, un po di come sono state pensate
 
-\section{Codifica}
+In sede di progettazione del frontend si è deciso di realizzarlo in javascript, e in particolare usando la libreria react, sfruttando a pieno il riutilizzo del codice che questa libreria permette agevolmente costruendo componenti.
+Lo stato del frontend è stato gestito in modo indipendente utilizzando redux, e redux toolkit per sfruttare le API quando è necessario comunicare con il backend.
+Per il routing è stata utilizzata la libreria apposita react-router che permette con semplicità di gestire le url e i link all'interno dell'applicazione senza dover usare strumenti esterni al linguaggio.
+Graficamente invece, si è scelto di usare MUI per mantenere un interfaccia molto intuitiva, semplice da usare, responsive e con tanti elemente già pronti per essere integrati con React.
+
+Redux permette di creare uno store, dove persistono tutti i dati che vogliamo gestire lato frontend, questo permette di non dover salvare i dati sul server e fare inutili e pesanti chimate ogni volta che si necessita di rappresentare questi dati.
+Lo store nel nostro caso particolare è stato usato per memorizzare lato frontend i "dati caricati dall'utente nella fase di caricamento dati da CD".
+
+1) store
+2) componenti
+3) integrazione componenti
+5) routing
+4) viste principali
+
+%**************************************************************
+
+\section{Codifica o Realizzazione???}
 Come ho agito in fase di codifica, cioè creazione dello store redux, creazione dell'api rtk, creazione dei vari componenti in react, integrazione dei componenti react, interazione tra componenti e stato/store test???
 eslint-airbnb style guide utilizzate come standard aziendale
 versionamento in gitlab regola aziendale 1 modifica 1 file 1 commit (nella situazione ideale), new file and delete file tutti sullo stesso commit purchè tutti dello stesso tipo
@@ -24,9 +43,121 @@ creazione di un nuovo componente
 integrazione del componente nella vista / nelle viste
 creazione dello store redux
 creazione delle api redux-toolkit
+\subsection{Store}
+Lo store è l'oggetto che contiene tutto lo stato dell'applicazione lato frontend, viene creato e gestito con Redux ed è completamente separato dalla user interface.
+Lo store nel nostro caso è molto complesso, perchè i dati possono diventare numericamente molto grandi in modo veloce e perchè la loro rappresentazione
+non è sempre serializzata come Redux prevede. Con le funzioni che Redux mette a disposizione la creazione e la manutenzione dello store risulta molto facile, una volta che è stato compreso come questo si comporta.
+Lo store rappresenta per la nostra applicazione lato frontend il punto dove vengono mantenuti tutti i dati e le operazioni che possono essere eseguite su questi. La caratteristica principale dello store è quella di essere diviso in
+\textbf{slice}, ovvero fette di dati, questo perchè più l'applicazione diventa grande più vinene mantenuta la divisione tra i dati. Lo stato dell'applicazione gestito con lo store può essere modificato soltanto chiamando dei particolari eventi chiamati \textbf{action}
+che permettono allo stato dell'applicazione di essere ricalcolato solo per le parti che convolgono le modifiche. Questo nuovo stato viene poi aggiornato automaticamente nei componenti React dopo il ricalcolo.
+Tutte le nostre action sono create all'interno di particolari funzioni della libreria Redux chiamate \textbf{reducer} che ricevono come parametri lo stato e l'azione e permettono il calcolo del nuovo stato.
+Infine per rendere disponibili i dati presenti nello store si possono creare dei \textbf{selector} che selezionano porzioni di dati dallo store e le rendono disponibili nei componenti React.
+\subsubsection{Creazione dello Store}
+progettato e creato come, intro slice e reducer
 
-flusso di lavoro in gitlab, con branch flow.. merge requeste per quando si deve approvare qualche modifica, ticket che passa in stato "da verificare"
-se necessita di altre modifiche torna "in corso" altrimenti va in "completato"
+Lo store implementato con Redux, viene creato in un apposito file javascript all'esterno dell'applicazione React, in questo modo manteniamo la separazione,
+e viene passato all'applicazione in un unico punto, che per convenzione è il file index.jsx dove tutta l'applicazione risiede. Lo store viene creato con un
+particolare metodo di Redux che combina tutte le slice che abbiamo creato.
 
-parallelismo tra flow di git usato e ticketing jira con metodo scrum
-documentazione nei ticket e nelle merge request di tutto quello che è stato fatto
+  [[[[esempio store combine]]]] con immagine
+\subsubsection{Slice e Reducer}
+Una slice contiene una parte del nostro store, nel caso della nostra apllicazione si è deciso di dividere lo store in due slice una per la parte dove vengono salvati i dati da visualizzare e modificare all'interno dell'applicazione (procedimenti, registrazioi e tracce) e
+l'altra per la parte che gestisce le richieste tramite API al backend, per questa seconda slice è necessario l'utilizzo della libreria Redux-toolkit che ha una serie di funzioni che permette di facilitare le richieste, e di integrare le risposte nello store.
+Ogni slice ha i propri reducer, ovvero le funzioni che prendendo in input lo stato attuale e una action restituiscono il nuovo stato modificato secondo quello che l'azione prevede.
+Nel nostro caso per mantenere più ordinata possibile la gestione dello stato ogni slice presenta il proprio reducer che contiene le varie action.
+
+  [[[[esempio trialSlice]]]] con immagine
+\subsubsection{Action}
+Le action modificano lo stato dell'applicazione senza farlo direttamente ma demandando la vera e propria modifica dei dati a Redux, per capire meglio queste operazioni che sono il fulcro della gestione dello store ci serviamo del seguente esempio.
+Una delle action del nostro store è quella che prevede il caricamento dei dati, un ......
+
+  [[[[Esempio load procedimenti]]]] con immagine
+per ogni reducer le sue action, quali ho fatto importanti e perchè (loadcron)
+\subsubsection{Selector}
+Per reperire una parte di dati come per esempio un array di registrazioni o un singolo procedimento all'interno del nostro store abbiamo bisogno dei selector,
+questi sono delle piccole funzioni che fanno un'azione di filtro dell'intero store restituendo solo quello che ci serve.
+
+  [[[[Esempio getProcedimenti]]]] con immagine
+selettori perchè, i più efficaci e quali usare dove
+
+\subsection{Component}
+La scelta di react in fase di analisi del progettoci permette di utilizzare i component tipici di questa libreria javascript. Il concetto di component è molto intuitivo quando ci si
+approccia ad usare React, essi sono come delle funzioni javascript che accettano in input dei particolari dati chiamati \textbf{props} e ritornano elementi React che
+descrivono cosa si dovrà vedere sullo schermo. Usando i components possiamo facilmente dividere la user interface in piccole parti indipendenti tra loro e riusabili, in modo da doverci occupare di
+una parte alla volta pensando solo a quella in modo isolato prima di integrarla con il resto della UI.
+I component secondo React possono essere di due tipi class component o function component, nel nostro caso abbiamo scelto di costruire tutti function component principalmente per avere un codice più
+leggibile e perchè non c'è la necessità di avere i vantaggi dei class component ( per esempio non ci serve nessun metodo costruttore all'interno dei component che abbiamo creato).
+I component possono quindi essere qualsiasi parte della user interface vogliamo realizzare, da un bottone a un form oppure un intera vista. Sviluppando la nostra applicazione abbiamo pensato inizialmente
+a i component più "esterni", ciè quelli che fanno da contenitore agli altri, andando poi a raffinare sempre di più fino a i component più "interni", ossia quelli riguardanti le parti più piccole dell'applicazione, applicando
+in questo modo una sorta di metodo top-down per lo sviluppo delle componenti della nostra applicazione.
+Una vola che abbiamo creato i vari component, utilizzando questo modello top-down, siamo passati all'integrazione tra i vari componenti che servivano per realizzare la completa user interface. React permette
+molto agevolmente, proprio come punto di forza nell'uso di questa libreria, l'integrazione tra i vari componenti. Basta importare nella pagina il componente che ci serve, richiamarlo nel codice come se fosse un normale tag
+HTML e passargli le props di cui ha bisogno, non dobbiamo preoccuparci di altro, React svolgerà per noi il corretto rendering dell'insieme dei componenti.
+  [[[[fileView codice]]]]
+Vediamo nel dettaglio come viene reralizzato un component nella nostra applicazione, nello specifico il component fileView, questo realizza un intera vista che si occupa di visualizzare la lista di tutti i file dopo che sono stati caricati dall'utente.
+{I vari import spiegati [righe da a]}
+Questo componente non necessita di alcuna props ma si serve di uno dei selector Redux che abbiamo creato per reperire la lista dei file di cui abbiamo bisogno dallo store. [righe da a]
+La lista dei file recuperata grazie all'apposito selector Redux viene snocciolata con la funzione nativa javascript map [riga boh], che permette di eseguire delle operazioni per ogni oggetto della lista, nel nostro caso per ogni file.
+In questo component per ogni file si desidera richiamare altri tre component che si occuperanno di alcune parti della user interface che riguarda ogni file, e sono:
+\begin{itemize}
+  \item AudioPlayer: che provvede a fare il render di un player per riprodurre il file
+  \item ProceedingTabs: tramite una tendina permette di visualizzare e gestire i metadati relativi al file (Marker e Interventi)
+  \item ProceedingList: recupera e visualizza tutti i procedimenti relativi a questo file
+\end{itemize}
+[[[[fileView vista renderizzata]]]]
+\subsection{Hooks}
+Gli Hook sono delle funzioni javascript che permettono di entrare nel ciclo usato da React per renderizzare i componenti, e in questo modo descriverne il comportamento.
+Queste funzioni non possono essere usate nei componenti di tipo classe e hanno delle regole di invocazione abbastanza rigide, per proteggere lo stato dell'applicazione e il ciclo di render.
+Gli hook infatti non possono essere chiamati all'interno di cicli, istruzioni condizionali o funzioni che non siano componenti react. La libreria React mette a disposizione degli Hook generici che risultano molto utili
+per gestire il rendering dei componenti, ma se qusti non dovessero bastare possiamo anche crearne di personalizzati. Di seguito vediamo un hook appositamente creato per recuperare dal backend la lista dei jobs,
+è stato creato per essere riusato qual'ora si rendesse necessario da un altra parte dell'applicazione ma anche perchè sfruttando le proprietà del linguaggio e in particolare di queste speciali funzioni possiamo
+facilmente gestire il filtraggio e la paginazione della lista dei jobs.
+
+  [[[[useJobResult]]]]
+\subsection{Routing}
+[[[[Ha senso questa sezione???]]]]
+\subsection{UI style}
+Lo sviluppo della parte grafica, in particolare per quanto riguarda lo stile dell'applicazione, non aveva nessun vincolo quindi si è scelta una soluzione che possa essere intuitiva, veloce da implementare e
+generalmente riconosciuta. La scelta è ricaduta su \textbf{MUI - Material UI} che è una libreria open-source di componenti React già precostruiti seguendo le regolole di Google Material Design.
+Material è un sistema di design creato da Google per velocizzare lo sviluppo dei componenti. MUI permette di non doversi preoccupare di aspetti chiave quali responsive-design, integrazione grafica dei nuovi componenti, stile
+generale dell'applicazione, perchè tutti questi aspetti vengono automatizzati usando stili globali e componenti già preimpostati.
+  [[[[configuarzione di un componente esempio grafico - ProceedingCard]]]]
+In questo esempio preso direttamente da uno dei componenti della nostra applicazione, possiamo vedere vari MUI component utilizzati e personalizzati appositamente per il nostro funzionamento.
+Tra questi c'è per esempio \textbf{<Stack>} che costruisce una pila di sottocomponenti, ma che possono essere direzionati in colonna o in righa (come nel nostro caso). Altri utilizzi sono \textbf{<FormControl>} e \textbf{<TextField>} che
+costruiscono una porzione di un form con un campo di tipo testo al suo interno.
+  [[[[risultato del componente - ProceedingCard]]]]
+
+\subsection{Viste principali}
+file view, proceeding view w jobs
+
+  [[[[Ha senso questa sezione???]]]]
+\section{Test o Testing???}
+Parte importante del nostro processo di sviluppo, sono i test. Secondo regola aziendale ma anche seguendo il piano di progetto dello stage è stata pianificata una buona parte di ore di testing. Le ore di
+testing sono state ripartite in modo proporzionale alle ore di sviluppo di ogni funzionalità. Nella fase iniziale di studio delle tecnologie da utilizzare per il progetto sono state incluse anche vaerie librerie per
+i test su funzioni javascript e componenti React che sono la grande parte del prodotto da realizzare. Dopo un confronto con il tutor si è deciso di intraprendere la strada di \textbf{React-testing-library} per il testing dei componenti
+e appoggiargi a \textbf{jest} per la parte javascript dei test.
+\subsection{Test javascript function}
+Il framework jest è uno dei più diffusi per il test di applicazioni javascript, è focalizzato sulla semplicità nella scrittura dei test e risulta comunque in grado di testare tutte le parti di nostro interesse.
+All'interno dei nostri test è stato usato in supporto a React-testing-library per il testing dei componenti React e in prima battuta per il test di tutte le utility javascript che abbiamo creato, in particolare si è reso molto importante
+nel testing delle funzioni che leggono i metadati caricati dall'utente e li manipolano per renderli usabili per l'applicazione. Il funzionamento di jest è molto semplice per i nostri casi, ma può essere esteso a molti altri
+tipi di test. Per noi è semplice e molto intuitivo creare un test javascript con questo framework, basta creare le condizioni per l'utilizzo di una determinata funzione che vogliamo testare, chimarla come se
+dovessimo realmente utilizzarla e vedere se i risultati in usicta da questa chiamata sono quelli che ci aspettiamo.
+  [[[esempio di test tipo cronologia o funzioni di ordinamento]]]
+Nella prima parte del test come si può vedere abbiamo creato i dati fittizzi che ci servono da passare alla funzion da testare (in questo caso [[[nome funzione]]]), in seguito abbiamo effettuato la chiamata di funzione e
+per concludere il test abbiamo scritto delle particolari funzioni (nomi reali tipo expect mi sembra) con le quali andare a vedere se i risultati ottenuti sono quelli che ci aspettiamo passando i nostri dati fittizzi.
+\subsection{Test React component}
+La libreria usata è React-testing-library, questa si appoggia completamente su un altra libreria di testing chiamata DOM-testing-library e fornisce una abbastanza completa suite di testing per i componenti React.
+  [[[Prima devo dire che si basa sul testare il DOM]]]
+Il principio che guida questa libreria e anche i nostri test sui componenti è che i test di integrazione hanno maggior valore degli unit test nel caso di applicazioni React. In particolare con queste librerie (React-testing e jest) usate in modo combinato
+si creano test su parti di applicazione dopo il rendering, ovvero la logica dei nostri test è quella di andare a verificare funzionamenti e presenza di elementi nel DOM dopo che è stato fatto il rendering
+dell'applicazione. Questo tipo di test ovviamente è un test di integrazione in quanto non va a testare singolarmente ogni componente e ogni funzionalità del componente ma esegue un test della UI dal punto di vista dell'utente, cioè controlliamo che
+l'applicazione in ogni momento si comporti come abbiamo progettato che lo faccia.
+La libreria prevede di descrivere un test passando ad un apposito metodo il componente di cui fare il render, e una volta che questo è stato completato con altri metodi specifici si va a controllare cosa è nel DOM. Altre situazioni
+possono esssere sottoposte a test in questo modo, come scatenare in modo controllato un evento (per esempio il click su un bottone) e vedere se il DOM si modifica come ci si aspetta. Ci sono molte altre possibilità per
+casi più particolari come per testare chiamate ad API, nella nostra applicazione però questo tipo di test non è stato implementato per motivi di tempo e in accordo con l'azienda che prevede di mettere appunto
+una specifica suite di test per questo ambito per vari prodotti che segue.
+  [[[[esempio di test]]]]
+Nel nostro piccolo esempio che abbiamo riportato qui di test di un componente si può vedere come sia facile e veloce implementare un test di questo tipo, ma allo stesso tempo come verifichi esattamente quello
+che ci aspettiamo dalla nostra applicazione. In questo caso dopo il rendering del nostro componente testato [[nome componente]] andiamo a controllare se nel DOM sono presenti gli elementi che ci aspettiamo [[nome elementi oggetto del test]].
+\subsection{Redux store, ho qualcosa???}
+[[[[come femo???]]]]

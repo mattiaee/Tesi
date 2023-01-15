@@ -4,10 +4,13 @@
 
 %**************************************************************
 \chapter{Progettazione}
-\label{cap:progettazione-codifica}
+\label{cap:progettazione}
 %**************************************************************
 
 \intro{Breve introduzione al capitolo}\\
+
+In questo capitolo vengono spiegate in modo dettagliate le tecnologie utilizzate nella realizzazione del progetto, inoltre viene data una spiegazione generale di come è
+stata progettata l'architettura del sistema e una più approfondita riguardante il frontend, che era oggetto del progetto di stage.
 
 %**************************************************************
 \section{Tecnologie}
@@ -15,6 +18,7 @@
 
 Di seguito viene data una panoramica delle tecnologie utilizzate.
 
+  [[[forse posso dividere tra codice, testing, sistema, utility]]]
 \subsection*{Javascript}
 JavaScript è un linguaggio di programmazione orientato agli oggetti e agli eventi, comunemente utilizzato nella programmazione Web lato client per la creazione applicazioni web. L'intera applicazione è stata scritta con questo linguaggio.
 
@@ -39,56 +43,73 @@ React Router è la libreria standard per il routing in React. Questa libreria pe
 \subsection*{Docker}
 Docker è un sistema che permette di facilitare il deployment delle applicazioni.
 
+\subsection*{jest} (???)
+Descrizione Tecnologia 2
+
+\subsection*{React testing library} (???)
+Descrizione Tecnologia 2
+
 \subsection*{airbnb js guidelines} (???)
 Descrizione Tecnologia 2
 
 \subsection*{eslint} (???)
 
 %**************************************************************
-\subsection{Architettura dell'applicazione}
-L'architettura dell'applicazione era già stata progettata prima dello stage e in piccola parte già esistente.
-L'intero sistema si basa sull'interazione tra backend e frontend mediante API rest, con l'auito del gestore di file minIO utilizzato
-per la memorizzazione dei file che vengono caricati dell'utente. Il sistema presenta quindi la formazione client-server dove nel server
-risiede la parte backend dell'applicativo mentre invece i vari client rappresentano il frontend dell'applicativo.
+\section{Architettura dell'applicazione}
+L'architettura generale dell'applicazione era già stata progettata prima dell'inizio dello stage in oggetto, e in parte già esistente. Il sistema si divide principalmente in tre parti:
+\begin{itemize}
+  \item \textbf{backend}:
+  \item \textbf{frontend}:
+  \item \textbf{object storage}:
+\end{itemize}
+
+La comunicazione tra le diverse parti del sistema invece avviene con l'utilizzo di \textbf{APIrest}.
+
 [disegno generale di front end back end api minio ecc ecc]
-\subsubsection*{Backend}
-Il backend è un applicazione a se stante scritta interamente in python, con architettura MVC (Model-View-Controller). Questa applicazione
-espone delle URL come endpoint per le chiamate REST del client frontend.
-\subsubsection*{Frontend}
-Il frontend dell'applicazione è la parte che è stata interamente implementata in oggetto allo stage, è l'interfaccia grafica
-presentata all'utente.
-\subsubsection*{APIrest}
+\subsection*{Backend}
+Il backend è un'applicazione a se stante realizzata interamente in Python, con architettura MVC (Model-View-Controller). Questa architettura permette di separare completamente la logica del prodotto
+dal modello, le viste non sono state approfondite in quanto lo scopo principale del backend è gestire e memorizzarei dati che vengono passati dal frontend e non visualizzarli. Il backend espone delle
+particolari URL come endpoint per le chiamate REST del client frontend.
+Il backend utilizza il modello (Model) per rappresentare i dati di interesse, il controller per gestirli, e la vista (View) per rappresentarli. Nel nostro caso non dovendo rappresentare i dati, operazione che spetta al frontend,
+esso espone dell URL come endpoint per le chiamate REST proprio del frontend. In questo modo ogni volta che viene fatta una rechiesta su una corretta URL al backend, esso la interpreta con l'apposito controller, gestendo i dati strutturati come nel modello, e dopo aver
+completato la gestione della richiesta, ne restituisce la risposta al frontend.
+\subsection*{Frontend}
+Il frontend dell'applicazione è generalmente la parte di interfaccia per l'utente, ossia quello che l'utente visualizza del nostro sistema e che gli da l'opportunità di interagire con il backend. Nel nostro caso il frontend
+non fa solo da interfaccia utente ma gestisce anche dei dati nel proprio stato fin tanto che questi rimangono in sessione, in modo da non fare continue richieste al backend che rallenterebbero molto il sistema a causa della mole dei dati da gestire e visto che non tutti i dati devono essere passati al backend.
+Il frontend è stato scritto in JavaScript e in particolare usando il framework React, gestendo però lo stato esternamente usando Redux, questo porta ad un'architettura leggermente più complessa dell'intero frontend ma da grandi benefici in quanto aiuta a mantenere per quanto possibile la separazione tra logica dell'applicazione
+e reppresentazione dei dati.
+  [disegno frontend react + redux]
+In generale l'architettura è quella della single page application, cioè una pagina che non necessita di essere totalmente ricaricata ad ogni modifica ma che va a modificare soltanto la porzione interessata.
+\subsection*{Object storage}
+L'object storage che si è deciso di utilizzare è minIO (scelta aziendale, legata anche ad altri progetti) e nel caso della nostra applicazione serve in particolare come stumento per memorizzare i file con delle semplici richieste tramite API.
+Questo ci permette essenzialmente due cose molto importanti non dover preoccuparci troppo dei dettagli implementativi della memeorizzazione e allo stesso tempo poter
+reperire agevolmente i file che ci servono. Per il caricamento di un file è necessario fare una semplice richiesta PUT, ad una apposita URL minIO passando il file come parametro il file che si desidera salvare.
+Questa URL viene concordata tra backend e minIO stesso in modo da essere sempre univoca per ogni nuovo file caricato, questo comporta che l'operazione finale di salvataggio del file comprenda tre richieste:
+\begin{itemize}
+  \item \textbf{frontend -> backend}: con questa richiesta il frontend comunica quale file vuole salvare al backend che può così memorizzarne i dati per tenerne traccia qual'ora si voglia in futuro reperire;
+  \item \textbf{backend -> minIO}: il backend richiede su un apposita URL a minIO di comunicargli la vera e propria URL univoca sulla quale fare la richiesta di salvataggio del file, dopo che l'ha ottenuta la da in risposta al frontend;
+  \item \textbf{frontend -> minIO}: il frontend dopo aver ricevuto la corretta URL sulla quale effettuare la richiesta PUT può eseguirla passando il file come parametro
+\end{itemize}
+Per la versione finale del progetto non è escluso di rivedere questa parte che si prevede una delle più importanti ma allo stesso tempo difficile da eseguire in modo efficace ed efficiente, per lo stato che il prodotto deve avere alla fine dello stage invece
+questa gestione è più che sufficiente.
+\subsection*{APIrest}
+
 Le API rest sono il tramite tra le due applicazioni, vengono gestite nella parte di frontend con redux-tolkit, e interrogano
 il backend sugli appositi endpoint, per poi lasciare al frontend l'interpretazione del risultato. Sono state utilizzate chiamate di
 tipo GET e POST. Inoltre una particolare chiamata di tipo PUT viene effettuata dal frontend per l'upload dei file su minIO.
-\subsubsection*{MinIO}
 %**************************************************************
-\subsection{Architettura frontend}
-disegno del frontend redux react come lavorano
+\section{Architettura frontend}
+Per capire nel dettaglio l'architettura del frontend ricorriamo al seguente schema di approfondimento.
+  [disegno del frontend redux react come lavorano]
+L'applicazione frontend ha un architettura semplice...
+
+
 Il frontend dell'applicazione è stato progettato come una single page application, che mantiene seprarazione tra lo stato e la
 user interface.
-\subsubsection*{React}
-\subsubsection*{Redux}
-\subsubsection*{React router}
-\subsubsection*{Mui}
-%**************************************************************
-\section{Progettazione}
-\label{sec:progettazione}
-viste implementate (jobs, proceeding view, file view), caricamento dati, upload dei dati, un po di come sono state pensate
-
-In sede di progettazione del frontend si è deciso di realizzarlo in javascript, e in particolare usando la libreria react, sfruttando a pieno il riutilizzo del codice che questa libreria permette agevolmente costruendo componenti.
-Lo stato del frontend è stato gestito in modo indipendente utilizzando redux, e redux toolkit per sfruttare le API quando è necessario comunicare con il backend.
-Per il routing è stata utilizzata la libreria apposita react-router che permette con semplicità di gestire le url e i link all'interno dell'applicazione senza dover usare strumenti esterni al linguaggio.
-Graficamente invece, si è scelto di usare MUI per mantenere un interfaccia molto intuitiva, semplice da usare, responsive e con tanti elemente già pronti per essere integrati con React.
-
-Redux permette di creare uno store, dove persistono tutti i dati che vogliamo gestire lato frontend, questo permette di non dover salvare i dati sul server e fare inutili e pesanti chimate ogni volta che si necessita di rappresentare questi dati.
-Lo store nel nostro caso particolare è stato usato per memorizzare lato frontend i "dati caricati dall'utente nella fase di caricamento dati da CD".
-
-1) store
-2) componenti
-3) integrazione componenti
-5) routing
-4) viste principali
+\subsection*{React}
+\subsection*{Redux}
+\subsection*{React router}
+\subsection*{Mui}
 
 %**************************************************************
 \section{Design Pattern utilizzati}
