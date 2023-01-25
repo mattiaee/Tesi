@@ -8,133 +8,187 @@
 \label{cap:introduzione}
 %**************************************************************
 
-Introduzione al contesto applicativo.\\
+%Introduzione al contesto applicativo.\\
 
-\noindent Esempio di utilizzo di un termine nel glossario \\
-\gls{api}. \\
+% \noindent Esempio di utilizzo di un termine nel glossario \\
+% \gls{api}. \\
 
-\noindent Esempio di citazione in linea \\
-\cite{site:agile-manifesto}. \\
+% \noindent Esempio di citazione in linea \\
+% \cite{site:agile-manifesto}. \\
 
-\noindent Esempio di citazione nel pie' di pagina \\
-citazione\footcite{womak:lean-thinking} \\
+% \noindent Esempio di citazione nel pie' di pagina \\
+% citazione\footcite{womak:lean-thinking} \\
 
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{L'azienda}
-
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-SAI.jpg}
+  \caption{Loso Syntema Artificial Intelligence}
+\end{figure}
 Synthema Artificial Intelligence (S.AI) è una start-up innovativa che si occupa di ricerca, progettazione, sviluppo, commercializzazione e manutenzione di
 prodotti e servizi innovativi ad alto valore tecnologico, basati sull'Internet of Things, la blockchain e su tecniche di Intelligenza Artificiale
 (in particolare reti neurali profonde), per l'analisi integrata e la comprensione di dati multimodali da fonti eterogenee (linguaggio naturale sia scritto che
 parlato, audio, immagini, video, dati generati da sensori) e per la gestione dei workflow, sia nel settore pubblico che privato.
 
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{Introduzione al progetto}
+Il progetto nasce dalla necessità dell'azienda di creare un sistema semi-automatico per la creazione di particolari \emph{\gls{ticketg}}\glsfirstoccur. Il sistema è rivolto ai lavoratori della aule di tribunale,
+ovvero i fonici, che si occupano di registrare su dei supporti CD quello che avviene nell'aula di un tribunale. Dopo aver registrato la loro parte di giornata nel tribunale di competenza,
+devono inserire tutti i dati relativi ai processi a cui hanno assistito nel sistema di memorizzazione della loro azienda. Le registrazioni audio dei fonici si articolano in una \gls{tracciag} per ogni microfono presente in aula
+più una traccia mixer che li riassume tutti. La registrazione di queste tracce audio viene impostata ad inizio giornata, facendo corrispondere ad ogni microfono una traccia, per poi non essere più modificata.
+Oltre a questo ogni fonico, con il sistema di registrazione presente in aula, può prendere degli appunti in riferimento a quello che succede, magari per alcuni casi particolari che si possono verificare o per ricordarsi i procedimenti a cui ha assistito.
+Tutti questi \gls{metadatig} vengono salvati sottoforma di file di testo, questo file riporta tutto quello che è successo durante la registrazione in ordine cronologico, qual'è il microfono attivo e quinid chi sta parlando, se ci sono appunti particolari e così via.
+Il lavoro del fonico si conclude poi con il caricamento di tutte le informazioni raccolte in aula sull'apposito sistema aziendale, con l'obiettivo di tenere traccia di tutti i procedimenti che avvengono nell'aula di tribunale.
+Questi dati vengono creati come ticket, ogni ticket si compone di un procedimento, che riporta un proprio codice e deve contenere varie informazioni (chi è o chi sono i giudici, imputati, PM ecc ecc).
+Questo processo di creazione e caricamento di ticket al momento è molto laborioso per i fonici che devono sostanzialmente fare tutto a mano, l'obiettivo di questo progetto e del relativo prodotto finale è quello di
+automatizzare questo processo, in modo che il fonico solo caricando l'intero CD contenente le tracce audio e il file di testo che le riassume visualizzi i vari ticket dei procedimenti a cui ha assistito. Così facendo il nostro prodotto
+garantirebbe una notevole diminuzione del tempo di lavoro, una minor percentuale di errori e lascerebbe all'incaricato solamente l'onere di ricontrollare i dati relativi ai ticket automaticamente creati prima di caricarli sul sistema.
 
-Lo stage svolto presso SAI aveva come scopo la creazione di un prototipo di piattaforma web/desktop per il caricamento delle registrazioni audio effettuate nelle aule di
-tribunale, con l'aiuto di alcuni metadata prodotti durante le medesime registrazioni. In particolare l'applicazione da sviluppare è divisa in due parti backend e frontend
-(spiegare meglio back e front) che comunicano tra loro mediante API rest (spiegare API). Lo stage si è focalizzato sullo sviluppo della parte frontend, avanzando di pari passo
-con lo sviluppo del  backend realizzata da altri membri del team di sviluppo. Per la realizzazione del frontend si è scelto di utilizzare Javascript con i framework React e Redux.
-
-  [fare merge dei due - secondo quello scritto nuovo] [valutare se iniziare da qui a introdurre i concetti di Metadati: Marker, Procedimenti, Interventi; Jobs]
-%**************************************************************
-\section{Introduzione al progetto}
-
-Il progetto nasce dalla necessità dell'azienda di creare un sistema semi-automatico per la creazione di particolari ticket. In particolare il sistema è rivolto ai lavoratori della aule di tribunale,
-nel nostro caso chiamati fonici, che dopo aver registrato la loro porzione di giornata nel tribunale di competenza, devono inserire tutti i dati relativi ai processi nel sistema di memorizzazione.
-I dati che vengono raccolti in aula sono registrati come tracce audio su dei CD, seguendo degli schemi abbastanza rigidiù. Queste tracce audio sono regolate da un file di testo, ove il fonico,
-seguendo gli stessi schemi delle registrazioni audio prende degli appunti su quanto sta accadendo in aula in quel momento.
-Un gruppo di dati che si riferisce ad un procedimento è quindi interpretato come ticket dai fonici, che ne devono inserire una grande quantità per ogni giornata lavorativa.
-Con questo progetto l'azienda intende risolvere il problema, dando la possibilità a questi lavoratori, di caricare i dati relativi ai procedimenti senza dover compilare nessun modulo
-per creare un ticket ma facendo in modo che questi, vengano automaticamente creati leggendo le tracce audio dei CD caricati e il file di testo che contiene gli appunti.
-
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{Principali problematiche}
-
 Per questo progetto sorgono diverse problematiche che elenco di seguito:
-
 \begin{itemize}
-  \item \textbf{tecnologiche}: tutte le tecnologie da utilizzare necessitano di una fase di apprendimento perchè inizialmente risultano per lo più non conosciute
-  \item \textbf{argomento del progetto}: l'argomento del progetto, ossia le registrazioni delle aule di tribunale, è conosciuto solo in parte
-  \item \textbf{tipi di dati e metadati}: i dati e metadati contenuti nei vari file relativi alle registrazione sono molto eterogenei e una loro classificazione dettagliata risulta molto difficile
+  \item \textbf{conoscenza dell'argomento}: la conoscenza degli argometi processi, giornata in aula, procedimenti risulta abbastanza vaga allo start del progetto;
+  \item \textbf{varietà metadati}: i metadati generati dal sistema, che coinvolgono schema delle tracce e appunti del fonico può generare grandi varietà di casi e sottocasi;
+  \item \textbf{grandezza dei dati}: i dati da trattare sono molto grandi, basti pensare che ogni ticket deve comprendere tutte le tracce audio di riferimento e ogni procedimento può durare anche svariate ore;
 \end{itemize}
 
-
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{Soluzione scelta}
-
-Il progetto pone vari dubbi nella fase di analisi per scegliere la soluzione migliore, che sia allo stesso tempo veloce nel caricamento dei dati e nella creazione dei ticket ma allo
-stesso tempo che non perda informazioni importanti, visto la sensibilità dei dati trattati. Viene scelto per questo progetto di creare un'applicazione inizialmente web ma con la possibilità
-di renderla desktop in futuro. L'applicazione sarà formata da un backend che servirà per tenere traccia delle informazioni che realmente servono, e un frontend che servirà principalmente per la
-composizione delle informazioni da passare al backend. In questo modo ogni volta che un CD viene caricato non viene interamente mandato al server, ma rimane in gestione
-al frontend che ne elabora i dati e li gestisce seguendo le preferenze dell'utente, prima di passare solo i dati necessari al backend. Per la memorizzazione dei file invece
-la strada pensata in fase di analisi è l'utilizzo di un client (object-storage) esterno dove fare l'upload solo delle tracce audio necessarie.
-L'oggetto del progetto di stage è proprio la parte di frontend di questo sistema pensato per agevolare il lavoro dei collaboratori delle aule di tribunale.
-
-
-%**************************************************************
-\section{Descrizione del prodotto ottenuto}
-
-Il prodotto finale ottenuto si discosta leggermente da quello inizialmente pensato, infatti è stata soltanto abbozzata la costruzione del ticket vero e proprio per motivi legati alle tempistiche dello stage
-e per dare la precedenza agli obiettivi obbligatori e desiderabili dello stage stesso. L'applicazione finale risulta un buon punto di partenza per costruire la restante parte del prodotto.
-Il prodotto ottenuto ha come inizio l'autenticazione dell'utente con la maschera di login, in modo che l'accesso a tutte le operazioni sia consentito solo agli utenti autorizzati.
-L'applicazione nello stato finale presenta le seguenti funzionalità:
+Il progetto pone vari dubbi nella fase di analisi per scegliere la soluzione migliore, che sia allo stesso tempo veloce nel caricamento dei dati e nella creazione dei ticket ma
+che non perda informazioni importanti, visto la sensibilità dei dati trattati. Viene scelto per questo progetto di creare un'applicazione inizialmente web ma con la possibilità
+di renderla desktop in futuro. L'applicazione sarà formata da un \gls{backendg} che servirà per tenere traccia delle informazioni che realmente servono per creare un ticket, e un \gls{frontendg}
+che servirà principalmente per la composizione delle informazioni da passare al backend.
+In questo modo ogni volta che un CD viene caricato non viene interamente mandato al server, ma rimane in gestione al frontend che ne elabora i dati e li gestisce seguendo le preferenze
+dell'utente, prima di passare solo i dati necessari al backend. Per la memorizzazione dei file invece la strada pensata in fase di analisi è l'utilizzo di un client (\gls{object-storageg})
+esterno dove fare l'upload solo delle tracce audio necessarie. L'oggetto del progetto di stage è proprio la parte di frontend di questo sistema pensato per agevolare il lavoro dei
+collaboratori delle aule di tribunale. Riassumendo, le soluzioni scelte a fronte delle principali problematiche riscontrate sono:
 \begin{itemize}
-  \item \textbf{caricamento dei dati}: l'utente può caricare i dati sull'applicazione scegliendo se caricare interi CD di registrazioni o singoli file, questa seconda funzionalità risulta molto utile nel caso
-        l'utente intenda aggiungere manualmente file che magari non sono presenti nel CD caricato in precedenza.
-  \item \textbf{viste dati caricati}: l'utente può scegliere di vedere i dati caricati ordinandoli sia per file sia per procedimento, quest'ultima risulta molto importante per l'utente finale perchè
-        può visualizzare le tracce audio caricate raggruppate per procedimento
-  \item \textbf{compilazione automatica form}: al caricamento del CD contenente le registrazioni i form relativi ai procedimenti vengono automaticamente compilati in modo da facilitare lìutente che deve solo controllarli
-  \item \textbf{riproduzione audio dei file}: nella pagina di visualizzazione dei file l'utente ha la possibilità di riprodurre ogni traccia audio caricata
-  \item \textbf{visulizzazione metadati del file}: grazie all'interpretazione dei metadati, per ogni file caricato è possibile vedere tutte le informazioni che ha a disposizione, nello specifico, l'utente può visualizzare tutti gli interventi e le annotazioni che sono state fatte
-  \item \textbf{caricamento dei file sul sistema}: dopo la revisione dei dati, quelli ritenuti validi possono essere facilmente caricati sul Backend
-  \item \textbf{riepilogo dati salvati}: l'utente può visulizzare la lista dei dati dei quali è già stato fatto l'upload e andare nel dettaglio di un singolo file per visualizzare più informazioni
+  \item \textbf{conoscenza dell'argomento}: abbondante fase di studio iniziale e documentazione sull'argometo;
+  \item \textbf{varietà metadati}:
+        \begin{itemize}
+          \item \textbf{libreria apposita}: creazione di una libreria interna apposita con l'unica funzione di comprendere la maggior parte dei casi dei metadati trovati;
+          \item \textbf{editing metadati}: possibilità di editare i metadati dopo che sono stati letti dalla nostra applicazione, per dare la possibilità ai fonici di modificarli in fase di verifica della creazione ticket;
+        \end{itemize}
+  \item \textbf{grandezza dei dati}:
+        \begin{itemize}
+          \item \textbf{gestione nel frontend}: gestire i dati nel frontend senza dover spostare tutte le tracce audio sul server prima di capire quali servano realmente alla creazione dei ticket;
+          \item \textbf{object storage}: upload delle sole tracce audio che sono necessarie direttamente su un apposito object storage senza dover passarle al backend;
+        \end{itemize}
+\end{itemize}
+
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
+\section{Descrizione del prodotto ottenuto}
+Il prodotto finale ottenuto si discosta leggermente da quello inizialmente pensato, infatti è stata soltanto abbozzata la costruzione del ticket vero e proprio per motivi legati alle
+tempistiche dello stage e per dare la precedenza agli obiettivi obbligatori e desiderabili dello stage stesso.
+L'applicazione finale risulta un buon punto di partenza per costruire la restante parte del prodotto. Il prodotto ottenuto ha come inizio l'autenticazione dell'utente con
+la maschera di login, in modo che l'accesso a tutte le operazioni sia consentito solo agli utenti autorizzati. L'applicazione nello stato finale presenta le seguenti funzionalità:
+\begin{itemize}
+  \item \textbf{caricamento dei dati}: l'utente può caricare i dati sull'applicazione scegliendo se caricare interi CD di registrazioni o singoli file, questa seconda funzionalità
+        risulta molto utile nel caso l'utente intenda aggiungere singoli file dopo che ha caricato l'intero CD, per gestire manualmente eventuali mancanze.
+  \item \textbf{visualizzazione dati}: l'utente ha a disposizione la visualizzazione dei dati caricati in due versioni, in un completo elenco dei file con i relativi metadati associati
+        o in un elenco dei procedimenti che il sistema ha rilevato interpretando i metadati.
+  \item \textbf{compilazione automatica form}: i \gls{formg} con i codici dei procedimenti risultano automaticamente compilati dopo che la \gls{libreriag} ha interpretato i metadati in fasi di caricamento delle registrazioni.
+  \item \textbf{riproduzione audio dei file}: nella pagina di visualizzazione dei file l'utente ha la possibilità di riprodurre ogni traccia audio caricata.
+  \item \textbf{visulizzazione metadati del file}: grazie all'interpretazione dei metadati, per ogni file caricato è possibile vedere tutte le informazioni che ha a disposizione,
+        nello specifico, l'utente, oltre a trovare tutti i procedimenti rilevati dalla libreria, può visualizzare tutti gli interventi e le annotazioni che sono state rilevate.
+  \item \textbf{caricamento procedimenti}: dopo la revisione dei dati caricati, i procedimenti ritenuti validi possono essere facilmente caricati sul Backend, insieme all'upload dei relativi file sull'object storage.
+  \item \textbf{riepilogo dati salvati}: l'utente può visulizzare la lista dei procedimenti dei quali è già stato fatto l'upload e andare nel dettaglio del singolo procedimento per visualizzare le informazioni complete.
 \end{itemize}
 
 
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{Strumenti utilizzati}
-
 L'azienda usa un'infrastruttura già collaudata della quale fanno parte sistemi di versionamento del codice, strumenti per l'organizzazione del lavoro e per la comunicazione all'interno del gruppo di lavoro.
-Di suguito una panoramica dettagliata degli strumenti utilizzati per lavorare nel team di sviluppatori dell'azienda.
+Di seguito una panoramica dettagliata degli strumenti utilizzati per lavorare nel \gls{team di sviluppatorig} dell'azienda.
 
-\subsection*{slack}
+%**************************************************************%
+\subsection*{Slack}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-Slack.jpg}
+  \caption{Logo Syntema Artificial Intelligence}
+\end{figure}
 E lo strumento che viene usato per la collaborazione aziendale, permette di vedere lo stato degli utenti (sviluppatorei dell'azienda
 nel nostro caso) se disponibili o assenti al momento. Questa applicazione da la possibilità di comunicare singolarmente con gli altri
 partecipanti oppure in piccoli gruppi divisi per progetto. Permette in oltre la condivisione dei file, molto utile nelle
 comunicazioni veloci.
 
+%**************************************************************%
 \subsection*{Jira}
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-jira.jpg}
+  \caption{Logo jira}
+\end{figure}
 Jira è lo strumento che l'azienda usa per l'organizzazione del lavoro. Permette di creare vari progetti, e per ogni progetto consente la
 creazione dei relativi ticket. In base alla metodologia di lavoro che si sceglie di utilizzare lo strumento permette di adottarla in tutto.
-Nel nostro caso la scelta aziendale è il metodo SCRUM e questo strumento consente la creazione degli sprint, è fornito di un backlog, ha
+Nel nostro caso la scelta aziendale è il metodo \gls{SCRUM} e questo strumento consente la creazione degli sprint, è fornito di un backlog, ha
 una bacheca personalizzata per ogni utente che consente di vedere lo stato di avanzamento dei ticket di interesse. Inoltre consente di creare
 report sull'andamento degli sprint oppure su alcuni periodi, cosa molto utile per tracciare la guida nel miglioramento aziendale.
 
+%**************************************************************%
 \subsection*{Gitlab}
-Sistema di versionamento dei file di codice usato dall'azienda. Questo strumento si basa su git e consente tutte le operazioni di un repository git.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-Gitlab.jpg}
+  \caption{Logo Gitlab}
+\end{figure}
+Sistema di versionamento dei file di codice usato dall'azienda. Questo strumento si basa su git e consente tutte le operazioni di un \gls{repositoryg} git.
 I file vengono condivisi tra tutti gli svilupparori grazie a questo strumento, divisi in repository, uno per ogni progetto sul quale l'azienda lavora.
-La linea guida aziendale per l'iutilizzo del sistema GitLab si basa sul workflow denominato feature branching, questo sistema di lavoro
+La linea guida aziendale per l'iutilizzo del sistema GitLab si basa sul \gls{workflowg} denominato feature branching, questo sistema di lavoro
 prevede di lasciare il ramo principale (solitamente chiamato main) sempre pulito e con una versione funzionante e testata del prodotto, mentre invece
 quanto si vuole lavorare su una nuova feature si crea un nuova ramo partendo da quello principale e una volta che questa feature sarà pronta per essere
-revisionata e integrata con quella principale si chiederà una merge request di questo feature branch sul branch principale.
-Il mantenimento dei file di codice sul repository si basa sulla regola aziendale 1 modifica - 1 commit - 1 file, ovvero si predilige che ogni branch che lo sviluppatore crea per sviluppare la relativa feature
+revisionata e integrata con quella principale si chiederà una \gls{merge requestg} di questo feature branch sul \gls{branchg} principale.
+Il mantenimento dei file di codice sul repository si basa sulla regola aziendale 1 modifica - 1 \gls{commitg} - 1 file, ovvero si predilige che ogni branch che lo sviluppatore crea per sviluppare la relativa feature
 sia composto da commit che riguardano soltato un file con la relativa modifica.
 
+%**************************************************************%
 \subsection*{VS Code}
-E l'IDE () di lavoro utilizzato per sviluppare il locale. Questo strumento è completo di tutto quello che serve per lo sviluppo del prodotto.
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-VSCode.jpg}
+  \caption{Logo VS code}
+\end{figure}
+E l'\gls{IDE} di lavoro utilizzato per sviluppare il locale. Questo strumento è completo di tutto quello che serve per lo sviluppo del prodotto.
 Esso infatti consente di sviluppare nei linguaggi che interessano il progetto, aiutando con vari plugin per il riconoscimento del codice,
 aiutando così lo sviluppatore a lavorare più velocemente e in modo più intuitivo. Inoltre è competamente integrato con i sistemi di
 versionamento, in particolare nel nostro caso con GitLab. Oltre a queste funzionalità consente di utilizzare plugin per la pulizia del
 codice, che settati in maniera corretta permettono di rimanere sempre fedeli alle regole aziendali automaticamente ad ogni salvataggio.
 
+%**************************************************************%
 \subsection*{Jitsi}
-E lo strumento che l'azienda utilizza per le riunioni in videocall settimanali ma anche per quelle individuali che dovessero essere necessarie
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-Jitsi.jpg}
+  \caption{Logo Jitsi}
+\end{figure}
+E lo strumento che l'azienda utilizza per le riunioni in \gls{videocallg} settimanali ma anche per quelle individuali che dovessero essere necessarie
 in qualsiasi momento.
 
+%**************************************************************%
 \subsection*{SCRUM}
-SCRUM è il framework che l'azienda segue per il lavoro in gruppo sui vari progetti. Questo framework molto diffuso per lo sviluppo software in
-team si basa su sprint di durata breve che mirano al completamento dei task assegnati, il ripetersi temporale di questi sprint porta l'avanzamento
-del prodotto. Nel nostro caso particolare quella che segue l'azienda è una versione personalizzata di questo framework. Il funzionamento è spiegato di seguito. \newline
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=2cm]{immagini/logo-SCRUM.jpg}
+  \caption{Logo SCRUM}
+\end{figure}
+\gls{SCRUM} è il \gls{frameworkg} che l'azienda segue per il lavoro in gruppo sui vari progetti. Questo framework molto diffuso per lo sviluppo software in
+team si basa su \gls{sprintg} di durata breve che mirano al completamento dei \gls{taskg} assegnati, il ripetersi temporale di questi sprint porta l'avanzamento
+del prodotto. Nel nostro caso particolare quella che segue l'azienda è una versione personalizzata di questo framework. Il funzionamento è spiegato di seguito.
 \begin{itemize}
   \item Durata degli sprint: normalmente una settimana;
   \item Meeting del lunedì:
@@ -154,21 +208,21 @@ del prodotto. Nel nostro caso particolare quella che segue l'azienda è una vers
         \end{itemize}
 \end{itemize}
 
-%**************************************************************
+%**************************************************************%
+%**************************************************************%
+%**************************************************************%
 \section{Organizzazione del testo}
 
 \begin{description}
-  \item[{\hyperref[cap:processi-metodologie]{Il secondo capitolo}}] descrive ...
+  \item[{\hyperref[cap:descrizione-stage]{Il secondo capitolo}}] approfondisce la descrizione dello stage come è stato pianificato, quali sono gli oiettivi ed altri dettagli
 
-  \item[{\hyperref[cap:descrizione-stage]{Il terzo capitolo}}] approfondisce ...
+  \item[{\hyperref[cap:analisi-requisiti]{Il terzo capitolo}}] approfondisce l'analisi dei requisiti in modo tecnico descrive come è stata svolta la fase di analisi
 
-  \item[{\hyperref[cap:analisi-requisiti]{Il quarto capitolo}}] approfondisce ...
+  \item[{\hyperref[cap:progettazione]{Il quarto capitolo}}] approfondisce la progettazione del prodotto descrivendo tecnicamente come è stata pensata l'architettura
 
-  \item[{\hyperref[cap:progettazione-codifica]{Il quinto capitolo}}] approfondisce ...
+  \item[{\hyperref[cap:realizzazione]{Il quinto capitolo}}] approfondisce la realizzazione del prodotto con la descrizione della fase di codifica e di testing
 
-  \item[{\hyperref[cap:verifica-validazione]{Il sesto capitolo}}] approfondisce ...
-
-  \item[{\hyperref[cap:conclusioni]{Nel settimo capitolo}}] descrive ...
+  \item[{\hyperref[cap:conclusioni]{Nel sesto capitolo}}] descrive le conclusioni valutando criticamente l'esperienza di stage e il prodotto ottenuto
 \end{description}
 
 Riguardo la stesura del testo, relativamente al documento sono state adottate le seguenti convenzioni tipografiche:

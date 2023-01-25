@@ -7,13 +7,14 @@
 \label{cap:analisi-requisiti}
 %**************************************************************
 
-\intro{Breve introduzione al capitolo}\\
+%\intro{Breve introduzione al capitolo}\\
 
 \section{Casi d'uso}
 
 Per lo studio dei casi di utilizzo del prodotto sono stati creati dei diagrammi.
 I diagrammi dei casi d'uso (in inglese \emph{Use Case Diagram}) sono diagrammi di tipo \gls{uml} dedicati alla descrizione delle funzioni o servizi offerti da un sistema, così come sono percepiti e utilizzati dagli attori che interagiscono col sistema stesso.
 Essendo il progetto finalizzato alla creazione di un tool per l'automazione di un processo, le interazioni da parte dell'utilizzatore devono essere ovviamente ridotte allo stretto necessario. Per questo motivo i diagrammi d'uso risultano semplici e in numero ridotto.
+\newpage
 
 \input{capitoli/usecase/UC1}
 \input{capitoli/usecase/UC2}
@@ -36,16 +37,14 @@ Il codice dei requisiti è così strutturato R(F/Q/V)(N/D/O) dove:
   \item[D =] desiderabile
   \item[F =] facoltativo
 \end{enumerate}
-Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e \ref{tab:requisiti-vincolo} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
+Nelle tabelle \ref{tab:requisiti-funzionali} e \ref{tab:requisiti-qualitativi} sono riassunti i requisiti e il loro tracciamento con gli use case delineati in fase di analisi.
 
 \newpage
-
-\label{sec:requisiti}
-\begin{center}
-  \renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
-  \begin{tabular}{ |p{2cm}|p{9cm}|p{2cm}| }
-    %    \caption{Tabella del tracciamento dei requisti dello stage}
-    %    \label{tab:requisiti-stage}
+\renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
+\begin{table}%
+  \caption{Tabella del tracciamento dei requisti funzionali}
+  \label{tab:requisiti-funzionali}
+  \begin{tabularx}{\textwidth}{lXl}
     \hline
     \textbf{Requisito} & \textbf{Descrizione}                           & \textbf{Use Case} \\
     \hline
@@ -65,9 +64,19 @@ Nelle tabelle \ref{tab:requisiti-funzionali}, \ref{tab:requisiti-qualitativi} e 
     \hline
     RFF-2              & visualizzazione jobs                           & UC6               \\
     \hline
-    RQD-1              & test di unità esaustivi                        & -                 \\
-    \hline
     RFF-1              & riproduzione audio file                        & UC3.1             \\
     \hline
-  \end{tabular}
-\end{center}
+  \end{tabularx}
+\end{table}%
+\renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
+\begin{table}%
+  \caption{Tabella del tracciamento dei requisiti qualitativi}
+  \label{tab:requisiti-qualitativi}
+  \begin{tabularx}{\textwidth}{lXl}
+    \hline
+    \textbf{Requisito} & \textbf{Descrizione}    & \textbf{Use Case} \\
+    \hline
+    RQD-1              & test di unità esaustivi & -                 \\
+    \hline
+  \end{tabularx}
+\end{table}%
