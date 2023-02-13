@@ -6,16 +6,16 @@
 % PDF/A filecontents
 \RequirePackage{filecontents}
 \begin{filecontents*}{\jobname.xmpdata}
-  \Title{Document’s title}
-  \Author{Author’s name}
+  \Title{Sviluppo del frontend di un'applicazione web in React js}
+  \Author{Mattia Episcopo}
   \Language{it-IT}
   \Subject{The abstract, or short description.}
-  \Keywords{keyword1\sep keyword2\sep keyword3}
+  \Keywords{applicazione\sep frontend\sep react}
 \end{filecontents*}
 
-\documentclass[10pt,                    % corpo del font principale
+\documentclass[10pt,                    % corpo del font principale 12pt per visualizzazione schermo, 10 pt per stampa book
                a4paper,                 % carta A4
-               twoside,                 % impagina per fronte-retro
+               twoside,                 % oneside non impagina per fronte-retro (per visualizzazione schermo), twoside impagina per fronte-retro (per stampa book)
                openright,               % inizio capitoli a destra
                english,                 
                italian,                 
@@ -68,6 +68,7 @@
 \usepackage{hyperref}                   % collegamenti ipertestuali
 
 \usepackage[binding=5mm]{layaureo}      % margini ottimizzati per l'A4; rilegatura di 5 mm
+%\usepackage[big]{layaureo}              % margini big per lettura da schermo non per stampa per l'A4; no rilegatura
 
 \usepackage{listings}                   % codici
 
@@ -94,7 +95,7 @@
                                         % 3. eseguire: makeindex -s tesi.ist -t tesi.alg -o tesi.acr tesi.acn
                                         % 4. compilare due volte tesi.tex.
 
-\usepackage[backend=biber,style=verbose-ibid,hyperref,backref]{biblatex}
+\usepackage[backend=biber,style=verbose-ibid,sorting=none,hyperref,backref]{biblatex}
                                         % eccellente pacchetto per la bibliografia; 
                                         % produce uno stile di citazione autore-anno; 
                                         % lo stile "numeric-comp" produce riferimenti numerici
@@ -126,5 +127,4 @@
 \printglossary[type=\acronymtype, title=Acronimi e abbreviazioni, toctitle=Acronimi e abbreviazioni]
 \printglossary[type=main, title=Glossario, toctitle=Glossario]
 \input{sezioni/bibliografia}
-\input{sezioni/glossario}
 \end{document}

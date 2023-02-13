@@ -3,147 +3,246 @@
 % !TEX root = ../tesi.tex
 
 
+
 %**************************************************************
 % Acronimi
 %**************************************************************
-\newacronym[description={\glslink{apig}{Application Program Interface}}]
-{api}{API}{Application Program Interface}
+\newacronym[description={\glslink{API}{Application Program Interface}}]
+{API}{API}{Application Program Interface}
 
-\newacronym[description={\glslink{umlg}{Unified Modeling Language}}]
+\newacronym[description={\glslink{uml}{Unified Modeling Language}}]
 {uml}{UML}{Unified Modeling Language}
 
-\newacronym[description={\glslink{SCRUM}{Unified Modeling Language}}]
-{SCRUM}{SCRUM}{Unified Modeling Language}
+\newacronym[description={\glslink{IDE}{Integrated Development Enviroment}}]
+{IDE}{IDE}{Integrated Development Enviroment}
 
-\newacronym[description={\glslink{IDE}{Unified Modeling Language}}]
-{IDE}{IDE}{Unified Modeling Language}
+\newacronym[description={\glslink{UI}{User Interface}}]
+{UI}{UI}{User Interface}
+
+\newacronym[description={\glslink{MVC}{Model View Controller}}]
+{MVC}{MVC}{Model View Controller}
+
+\newacronym[description={\glslink{REST}{REpresentational State Transfer}}]
+{REST}{REST}{REpresentational State Transfer}
+
+\newacronym[description={\glslink{JSON}{JavaScript Object Notation}}]
+{JSON}{JSON}{JavaScript Object Notation}
+
+\newacronym[description={\glslink{MVVM}{Model-View-ViewModel}}]
+{MVVM}{MVVM}{Model-View-ViewModel}
+
+\newacronym[description={\glslink{URL}{Uniform Resource Locator}}]
+{URL}{URL}{Uniform Resource Locator}
+
+\newacronym[description={\glslink{HTML}{HyperText Markup Language}}]
+{HTML}{HTML}{HyperText Markup Language}
+
+\newacronym[description={\glslink{DOM}{Document Object Model}}]
+{DOM}{DOM}{Document Object Model}
+
 
 %**************************************************************
 % Glossario
 %**************************************************************
-\newglossaryentry{ticketg}
+\newglossaryentry{start-up}
 {
-  name=\glslink{ticket}{ticket},
-  text=ticket,
-  sort=ticket,
-  description={descrizione}
+  name=\glslink{start-up}{start-up},
+  text=start-up,
+  sort=start-up,
+  description={è un'azienda che è nella fase iniziale di avvio delle attività}
 }
-\newglossaryentry{tracciag}
-{
-  name=\glslink{traccia}{traccia},
-  text=traccia,
-  sort=traccia,
-  description={descrizione}
-}
-\newglossaryentry{metadatig}
+\newglossaryentry{metadati}
 {
   name=\glslink{metadati}{metadati},
   text=metadati,
   sort=metadati,
-  description={descrizione}
+  description={sono le informazioni che permettono la costruzione dei dati}
 }
-\newglossaryentry{backendg}
+\newglossaryentry{byte}
 {
-  name=\glslink{backend}{backend},
-  text=backend,
-  sort=backend,
-  description={descrizione}
+  name=\glslink{byte}{byte},
+  text=byte,
+  sort=byte,
+  description={è generalmente una sequenza di 8 bit. Con i multipli del byte si identifica l'unità di misura della capacità di memoria}
 }
-\newglossaryentry{frontendg}
+\newglossaryentry{frontend}
 {
   name=\glslink{frontend}{frontend},
   text=frontend,
   sort=frontend,
-  description={descrizione}
+  description={nell'architettura di un applicazione si intende la parte di software visibile all'utente}
 }
-\newglossaryentry{object-storageg}
+\newglossaryentry{backend}
 {
-  name=\glslink{object-storage}{object-storage},
-  text=object-storage,
-  sort=object-storage,
-  description={descrizione}
+  name=\glslink{backend}{backend},
+  text=backend,
+  sort=backend,
+  description={nell'architettura di un applicazione si intende la parte di software con la quale l'utente non interagisce direttamente, che generalmente gestisce l'archiviazione dei dati e la  logica di busness}
 }
-\newglossaryentry{formg}
+\newglossaryentry{object storage}
 {
-  name=\glslink{form}{form},
-  text=form,
-  sort=form,
-  description={descrizione}
+  name=\glslink{object storage}{object storage},
+  text=object storage,
+  sort=object storage,
+  description={è un architettura per la memorizzazione dei dati, dove questi vengono gestiti come oggetti}
 }
-\newglossaryentry{libreriag}
+\newglossaryentry{libreria}
 {
   name=\glslink{libreria}{libreria},
   text=libreria,
   sort=libreria,
-  description={descrizione}
+  description={è un insieme di funzioni e strutture dati non direttamente eseguibili utilizzati a supporto di un software}
 }
-\newglossaryentry{team di sviluppatorig}
+\newglossaryentry{form}
 {
-  name=\glslink{team di sviluppatori}{team di sviluppatori},
-  text=team di sviluppatori,
-  sort=team di sviluppatori,
-  description={descrizione}
+  name=\glslink{form}{form},
+  text=form,
+  sort=form,
+  description={è la parte di interfaccia utente di un applicazione che consente all'utente l'iserimento di dati}
 }
-\newglossaryentry{repositoryg}
-{
-  name=\glslink{repository}{repository},
-  text=repository,
-  sort=repository,
-  description={descrizione}
-}
-\newglossaryentry{workflowg}
-{
-  name=\glslink{workflow}{workflow},
-  text=workflow,
-  sort=workflow,
-  description={descrizione}
-}
-\newglossaryentry{merge requestg}
-{
-  name=\glslink{merge request}{merge request},
-  text=merge request,
-  sort=merge request,
-  description={descrizione}
-}
-\newglossaryentry{branchg}
-{
-  name=\glslink{branch}{branch},
-  text=branch,
-  sort=branch,
-  description={descrizione}
-}
-\newglossaryentry{commitg}
-{
-  name=\glslink{commit}{commit},
-  text=commit,
-  sort=commit,
-  description={descrizione}
-}
-\newglossaryentry{videocallg}
-{
-  name=\glslink{videocall}{videocall},
-  text=videocall,
-  sort=videocall,
-  description={descrizione}
-}
-\newglossaryentry{frameworkg}
-{
-  name=\glslink{framework}{framework},
-  text=framework,
-  sort=framework,
-  description={descrizione}
-}
-\newglossaryentry{sprintg}
-{
-  name=\glslink{sprint}{sprint},
-  text=sprint,
-  sort=sprint,
-  description={descrizione}
-}
-\newglossaryentry{taskg}
+\newglossaryentry{task}
 {
   name=\glslink{task}{task},
   text=task,
   sort=task,
-  description={descrizione}
+  description={in un sistema di organizzazione del lavoro è una specifica attività che fa parte di un progetto}
 }
+\newglossaryentry{repository}
+{
+  name=\glslink{repository}{repository},
+  text=repository,
+  sort=repository,
+  description={è un sistema di archiviazione di file e dati utilizzato per gestire il codice di un progetto}
+}
+\newglossaryentry{workflow}
+{
+  name=\glslink{workflow}{workflow},
+  text=workflow,
+  sort=workflow,
+  description={nella gestione dei progetti è il flusso di lavoro che un attività deve seguire dalla sua creazione al suo completamento}
+}
+\newglossaryentry{plugin}
+{
+  name=\glslink{plugin}{plugin},
+  text=plugin,
+  sort=plugin,
+  description={è un programma a supporto di un altro che ne estende le funzionalità}
+}
+\newglossaryentry{framework}
+{
+  name=\glslink{framework}{framework},
+  text=framework,
+  sort=framework,
+  description={è l'architettura logica sulla quale il software viene progettato e realizzato, utilizzato per facilitare lo sviluppo e il mantenimento del codice}
+}
+\newglossaryentry{jobs}
+{
+  name=\glslink{jobs}{jobs},
+  text=jobs,
+  sort=jobs,
+  description={nella nostra applicazione con questo termine si intende i procedimenti per i quali è già stato fatto l'upload verso il backend}
+}
+\newglossaryentry{open-source}
+{
+  name=\glslink{open-source}{open-source},
+  text=open-source,
+  sort=open-source,
+  description={indica una particolare la licenza di un software, che consente la libera distribuzione la modifica e lo studio}
+}
+\newglossaryentry{routing}
+{
+  name=\glslink{routing}{routing},
+  text=routing,
+  sort=routing,
+  description={indica la parte di gestione dell'indirizzamento delle URL e dei percorsi (path) in un applicazione web}
+}
+\newglossaryentry{endpoint}
+{
+  name=\glslink{endpoint}{endpoint},
+  text=endpoint,
+  sort=endpoint,
+  description={nella comunicazione frontend-backend tramite API è il punto che il server espone per ricevere richieste ed inviare risposte}
+}
+\newglossaryentry{sessione}
+{
+  name=\glslink{sessione}{sessione},
+  text=sessione,
+  sort=sessione,
+  description={nelle applicazioni web, indica l'attività svolta dall'utente da quando si collega all'applicazione tramite browser a quando il collegamento viene chiuso}
+}
+\newglossaryentry{stato}
+{
+  name=\glslink{stato}{stato},
+  text=stato dell'applicazione,
+  sort=stato,
+  description={è l'insieme di input di dati e azioni che determinano l'output in un dato momento.}
+}
+\newglossaryentry{brano}
+{
+  name=\glslink{brano}{brano},
+  text=brano,
+  sort=brano,
+  description={nelle tracce audio del nostro sistema di registrazione, è la traccia più esterna che può contenere vari sottobrani. Possono essercene più di uno per CD.}
+}
+\newglossaryentry{sottobrano}
+{
+  name=\glslink{sottobrano}{sottobrano},
+  text=sottobrano,
+  sort=sottobrano,
+  description={nelle tracce audio del nostro sistema di registrazione, è la traccia più interna che è figlia di un brano. Possono essercene più di una per ogni brano.}
+}
+\newglossaryentry{canali}
+{
+  name=\glslink{canali}{canali},
+  text=canale audio,
+  sort=canale,
+  description={nell'aula di tribunale, corrisponde alla registrazione di uno dei microfoni disponibili in aula nei quali uno dei presenti parla. Ad ogni canale audio corrisponde
+      una traccia.}
+}
+\newglossaryentry{traccia mixer}
+{
+  name=\glslink{traccia mixer}{traccia mixer},
+  text=traccia mixer,
+  sort=traccia mixer,
+  description={nel nostro sistema di registrazione, è la traccia risultato del mixaggio delle tracce corrispondendi ai singoli canali. In particolare ci sono 7 microfoni
+      in aula, ognuno viene registrato su una traccia audio, la traccia mixer è quella che registra tutto l'insieme.}
+}
+\newglossaryentry{parsing}
+{
+  name=\glslink{parsing}{parsing},
+  text=parsing,
+  sort=parsing,
+  description={significa letteralmente analisi, nel nostro contesto si riferisce all'analisi e all'interpretazione che la libreria creata fa sui metadati che si trovano nel file cronologia}
+}
+\newglossaryentry{oggetti javascript}
+{
+  name=\glslink{oggetti javascript}{oggetti javascript},
+  text=oggetto javascript,
+  sort=oggetto javascript,
+  description={sono delle strutture dati che possiamo definire all'interno del nostro codice.}
+}
+\newglossaryentry{array di oggetti}
+{
+  name=\glslink{array di oggetti}{array di oggetti},
+  text=array di oggetti,
+  sort=array di oggetti,
+  description={sono delle collezioni non ordinate di oggetti javascript, sulle quali possiamo eseguire operazioni di vario tipo, aggiungere/rimuovere/modificare dati per esempio}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newglossaryentry{apig}
+% {
+%   name=\glslink{api}{API},
+%   text=Application Program Interface,
+%   sort=api,
+%   description={in informatica con il termine \emph{Application Programming Interface API} (ing. interfaccia di programmazione di un'applicazione) si indica ogni insieme di procedure disponibili al programmatore, di solito raggruppate a formare un set di strumenti specifici per l'espletamento di un determinato compito all'interno di un certo programma. La finalità è ottenere un'astrazione, di solito tra l'hardware e il programmatore o tra software a basso e quello ad alto livello semplificando così il lavoro di programmazione}
+% }
+
+% \newglossaryentry{umlg}
+% {
+%   name=\glslink{uml}{UML},
+%   text=UML,
+%   sort=uml,
+%   description={in ingegneria del software \emph{UML, Unified Modeling Language} (ing. linguaggio di modellazione unificato) è un linguaggio di modellazione e specifica basato sul paradigma object-oriented. L'\emph{UML} svolge un'importantissima funzione di ``lingua franca'' nella comunità della progettazione e programmazione a oggetti. Gran parte della letteratura di settore usa tale linguaggio per descrivere soluzioni analitiche e progettuali in modo sintetico e comprensibile a un vasto pubblico}
+% }
+

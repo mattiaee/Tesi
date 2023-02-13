@@ -6,39 +6,44 @@
 \chapter{Conclusioni}
 \label{cap:conclusioni}
 %**************************************************************
-\section{Consuntiovo finale}
+\section{Consuntivo finale}
 \label{sec:consuntivo-finale}
 
-\begin{center}
-  \renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
-  \begin{tabular}{ |p{1cm}|p{2,5cm}|p{8,5cm}| }
-    %    \caption{Tabella del tracciamento dei requisti dello stage}
-    %    \label{tab:requisiti-stage}
+\renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
+\begin{table}[H]%
+  \begin{tabularx}{\textwidth}{|l|c|X|}
     \hline
-    \multicolumn{2}{|c|}{\textbf{Settimana}} & \textbf{Attività}                                                                                                  \\
+    {\textbf{Sett}} & {\textbf{Da - A}}            & \textbf{Attività}                                                                         \\
     \hline
-    1                                        & dal 17/10/2022 al 25/10/2022 & autenticazione mediante server remoto                                               \\
+    1               & dal 17/10/2022 al 23/11/2022 & Studio tecnologie                                                                         \\
     \hline
-    2                                        & dal 17/10/2022 al 25/10/2022 & lettura dati da CD                                                                  \\
+    2               & dal 24/10/2022 al 30/11/2022 & Studio tecnologie e inizio sviluppo prototipo applicazione                                \\
     \hline
-    3                                        & dal 17/10/2022 al 25/10/2022 & precompilazione di form con i dati caricati da CD                                   \\
+    3               & dal 31/10/2022 al 06/11/2022 & Studio tecnologie e sviluppo prototipo applicazione                                       \\
     \hline
-    4                                        & dal 17/10/2022 al 25/10/2022 & editing dei dati del form                                                           \\
+    4               & dal 07/11/2022 al 13/11/2022 & Sviluppo dell'interfaccia di login                                                        \\
     \hline
-    5                                        & dal 17/10/2022 al 25/10/2022 & upload dei dati verso i sistemi esterni                                             \\
+    5               & dal 14/11/2022 al 20/11/2022 & Sviluppo dell'interfaccia di login e relativi test                                        \\
     \hline
-    6                                        & dal 17/10/2022 al 25/10/2022 & test di unità esaustivi                                                             \\
+    6               & dal 21/11/2022 al 27/11/2022 & Implementazione lettura dati da CD                                                        \\
     \hline
-    7                                        & dal 17/10/2022 al 25/10/2022 & possibilità di ascoltare le registrazioni                                           \\
+    7               & dal 28/11/2022 al 04/12/2022 & Implementazione lettura dati da CD e relativi test                                        \\
     \hline
-    8                                        & dal 17/10/2022 al 25/10/2022 & possibilità di modificare i dati mediante interazioni evolute (per es. drag-n-drop) \\
+    8               & dal 05/12/2022 al 11/12/2022 & Implementazione editing dei dati e relativi test                                          \\
     \hline
-    9                                        & dal 17/10/2022 al 25/10/2022 & realizzazione di un'applicazione desktop con Electron                               \\
+    9               & dal 12/12/2022 al 18/12/2022 & Sviluppo react audio player component                                                     \\
     \hline
-    10                                       & dal 17/10/2022 al 25/10/2022 & compilazione multipiattaforma dell'applicazione desktop                             \\
+    10              & dal 19/12/2022 al 25/12/2022 & Implementazione upload dei dati                                                           \\
     \hline
-  \end{tabular}
-\end{center}
+    11              & dal 26/12/2022 al 01/01/2023 & Implementazione upload dei dati e relativi test                                           \\
+    \hline
+    12              & dal 02/01/2023 al 08/01/2023 & Inizio creazione dei ticket e studio sistemi di modifica dati tramite interazione evolute \\
+    \hline
+  \end{tabularx}
+  \\
+  \label{tab:consuntivo-stage}
+  \caption{Tabella del consuntivo orario dello stage}
+\end{table}%
 
 % \subsection*{Orario}
 
@@ -46,52 +51,75 @@
 
 \section{Raggiungimento degli obiettivi}
 \label{sec:raggiungimento-obiettivi}
-\begin{center}
-  \renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
-  \begin{tabular}{ |p{1cm}|p{9cm}|p{2cm}| }
-    %    \caption{Tabella del tracciamento dei requisti dello stage}
-    %    \label{tab:requisiti-stage}
+
+\renewcommand{\arraystretch}{1.8} %aumento ampiezza righe
+\begin{table}[H]%
+  \begin{tabularx}{\textwidth}{|l|X|c|}
     \hline
-    \textbf{Codice} & \textbf{Descrizione}                                                                & \textbf{Stato}          \\
+    \textbf{Codice} & \textbf{Descrizione}                                                                & \textbf{Stato}  \\
     \hline
-    O01             & autenticazione mediante server remoto                                               & soddisfatto             \\
+    O01             & autenticazione mediante server remoto                                               & soddisfatto     \\
     \hline
-    O02             & lettura dati da CD                                                                  & soddisfatto             \\
+    O02             & lettura dati da CD                                                                  & soddisfatto     \\
     \hline
-    O03             & precompilazione di form con i dati caricati da CD                                   & soddisfatto             \\
+    O03             & precompilazione di form con i dati caricati da CD                                   & soddisfatto     \\
     \hline
-    O04             & editing dei dati del form                                                           & soddisfatto             \\
+    O04             & editing dei dati del form                                                           & soddisfatto     \\
     \hline
-    D01             & upload dei dati verso i sistemi esterni                                             & soddisfatto             \\
+    D01             & upload dei dati verso i sistemi esterni                                             & soddisfatto     \\
     \hline
-    D02             & test di unità esaustivi                                                             & soddisfatto             \\
+    D02             & test di unità esaustivi                                                             & soddisfatto     \\
     \hline
-    F01             & possibilità di ascoltare le registrazioni                                           & soddisfatto             \\
+    F01             & possibilità di ascoltare le registrazioni                                           & soddisfatto     \\
     \hline
-    F02             & possibilità di modificare i dati mediante interazioni evolute (per es. drag-n-drop) & non\newline soddisfatto \\
+    F02             & possibilità di modificare i dati mediante interazioni evolute (per es. drag-n-drop) & non soddisfatto \\
     \hline
-    F03             & realizzazione di un'applicazione desktop con Electron                               & non\newline soddisfatto \\
+    F03             & realizzazione di un'applicazione desktop con Electron                               & non soddisfatto \\
     \hline
-    F04             & compilazione multipiattaforma dell'applicazione desktop                             & non\newline soddisfatto \\
+    F04             & compilazione multipiattaforma dell'applicazione desktop                             & non soddisfatto \\
     \hline
-  \end{tabular}
-\end{center}
+  \end{tabularx}
+  \\
+  \label{tab:soddisfazione-requisiti-stage}
+  \caption{Tabella del tracciamento della soddisfazione dei requisti dello stage}
+\end{table}%
+
+\section{Valutazione obiettivi}
+\label{sec:prodotto-ottenuto}
+Valutando lo stage sulla base degli obiettivi che erano stati prefissati in sede di pianificazione posso dire che è stato svolto un buon lavoro e che gran parte di quelli
+che erano stati individuati come più facili da raggiungere sono stati soddisfatti. In particolare gli obiettivi obbligatori (O01, O02, O03, O04) sono stati soddisfatti agevolmente
+nel corso della prima parte dello stage in seguito alla fase di studio delle tecnologie. Per quanto riguarda invece gli altri obiettivi soddisfatti, che si dividono tra
+desiderabili (D01, D02) e facoltativi (F01), sono stati svolti prevalentemente nella seconda parte dell'esperienza di lavoro, anche se va fatta una menzione particolare per
+D02 che trattava i test di unità, che ha coinvolto l'intera durata dello stage, dalla fase di studio alla fine dell'implementazione dell'ultimo requisito sviluppato.
+Per quanto riguarda gli obiettivi dello stage che non sono stati soddisfatti (F02, F03, F04), va constatato che erano stati classificati come facoltativi in fase di pianificazione delle attività,
+questo perchè era stato previsto che potessero essere difficili da raggiungere per vari motivi. In particolare l'obiettivo F02, che riguarda la modifica di dati mediante drag-n-drop è
+stato studiato durante il periodo di stage in quanto era una delle attività che poteva essere sviluppata nel corso delle ultime settimane, però oltre alla fase di studio delle tecnologie da
+utlizzare e qualche prova non sono riuscito a concludere molto di più perchè è arrivata la fine dello stage, probabilmente era un attività che necessitava di essere pianificata prima nel percorso di lavoro.
+Gli altri due obiettivi non soddisfatti (F03, F04) durante lo stage invece non sono mai stati pianificati tra le attività da svolgere, e in questo caso i motivi sono molteplici e non
+riguardano solo le tempistiche dello stage. La prima cosa che va osservata per questi due obiettivi è che sono sequenziali nella loro realizzazione, in particolare
+l'idea pre-stage era quella di portare prima l'applicazione sul web, poi su desktop tramite Electron e infine su altri sistemi desktop, non avendo completato la creazione
+dell'applicazione web gli altri due obiettivi non potevano ovviamente essere realizzati. Posso quindi dire che l'inserimento di questi due obiettivi nel piano di lavoro è
+stata un po troppo pretenziosa, nel senso che sono stati giustamente classificati come facoltativi però dopo aver lavorato su questo progetto ho capito che era abbastanza
+impensabile poter realizzare un'applicazione web, per quanto minima, nelle tempistiche dello stage, e poi cercare di spostarla su desktop. Quello che a posteriori posso dire che
+ha portato via la maggior parte del tempo e quindi allungato tutte le tempistiche dello stage è stato lo studio del corretto modo di trattare i dati e metadati che sono coinvolti
+nell'applicazione, la natura di questi dati e la loro varietà ha protratto le fasi di studio e di progettazione dell'applicazione molto più avanti nel tempo di quanto ci si poteva
+aspettare e questo di conseguenza ha ristretto le tempistiche per lo svolgimento degli obiettivi facoltativi.
 
 \section{Prodotto ottenuto}
 \label{sec:prodotto-ottenuto}
-Alla fine dell'esperienza di stage il prodotto, come già accennato nella parte introduttiva della relazione, si discosta leggermente dal quello che sarà il prodotto finale da
-mettere in produzione. Si è deciso per motivi di tempo e di comprensione dell'argomento di realizzare le funzionalità che erano oggetto dello stage in prima battuta e svolgere in seconda
-fase tutto quello che riguarda l'integrazione tra le varie parti del frontend, in particolare la creazione del ticket che alla fine dell'esperienza risulta non ancora completata.
+Alla fine dell'esperienza di stage il prodotto, come già accennato nella parte introduttiva della relazione, si discosta leggermente da quello che sarà il prodotto finale da
+mettere in produzione. Si è deciso di realizzare le funzionalità che erano oggetto dello stage in prima battuta e svolgere in seconda fase tutto quello che riguarda
+l'integrazione tra le varie parti del frontend, in particolare la creazione del ticket che alla fine dell'esperienza risulta non ancora completata.
 Il prodotto non è ancora in produzione, ma è in un buono stato di avanzamento, a giudizio dell'azienda ospitante lo stage, e guardando al futuro si prevede che con qualche altro mese di
 lavoro, potrà passare alla fase di collaudo.
 
 \section{Conoscenze acquisite}
 \label{sec:conoscenze-acquisite}
-Questa esperienza di stage ha avuto grande valore per quanto riguarda l'acquisizione delle conoscenze tecniche e tecnologiche, infatti grazie all'aiuto in partocolare del tutor ma anche
-di altri sviluppatore del team dell'azienda ospitante lo stage, posso dire di aver raggiunto una buona conoscenza degli strumenti utilizzati ma anche a lato pratico delle tecnologie
+Questa esperienza di stage ha avuto grande valore per quanto riguarda l'acquisizione delle conoscenze tecniche e tecnologiche, infatti grazie all'aiuto in particolare del tutor ma anche
+di altri sviluppatori del team dell'azienda ospitante lo stage, posso dire di aver raggiunto una buona conoscenza degli strumenti utilizzati ma anche a lato pratico delle tecnologie
 impiegate per lo sviluppo e i test. Guardando nel particolare, per qunato riguarda l'organizzazione aziendale e la gestione del progetto, ho acquisito una conoscenza approfondita nell'
 utilizzo del framework SCRUM. Inoltre sempre per quanto riguarda la gestione del codice, un altro personale grande passo in avanti è stato fatto nella comprensione approfondita
-di git della maggioranza delle sue funzionalità, in modo specifico per quanto riguarda il workflow utilizzato dall'azienda, il feature branch. A lato sviluppo e testing ovviamente l'apprendimento
+di git nella maggior parte delle sue funzionalità, in modo specifico per quanto riguarda il workflow utilizzato dall'azienda, il feature branch. A lato sviluppo e testing ovviamente l'apprendimento
 è risultato più difficile perchè le tecnologie utilizzate erano completamente nuove in particolare Redux ma anche React, solo per citare le principali, ma in una valutazione retrospettiva
 posso dire che il migliramento, nella comprensione dei paradigmi di sviluppo, e delle buone norme di codifica per le tecnologie utilizzate, è stato molto soddisfacente.
 
@@ -99,21 +127,21 @@ posso dire che il migliramento, nella comprensione dei paradigmi di sviluppo, e 
 \label{sec:valutazione-finale-prodotto}
 Il prodotto finale come detto in precedenza non risulta ancora utilizzato, ma essendo un progetto reale che l'azienda porterà avanti per mettere in seguito in produzione, continuerà ad
 essere sviluppato per raggiungere quelli che sono gli obiettivi che l'azienda ha posto nell'analisi iniziale. Alla fine dell'esperienza di stage da parte mia sicuramente resta una piccola parte
-di insoddisfazione per non aver raggiunto anche gli obiettivi posti come facoltativi che l'azineda porterà a termine nel prossimo futuro. La principale problematica riscontrata alla fine
+di insoddisfazione per non aver raggiunto anche gli obiettivi posti come facoltativi che l'azienda porterà a termine nel prossimo futuro. La principale problematica riscontrata alla fine
 dell'esperienza penso di poter dire che è la non conoscenza delle tecnologie utilizzate per lo sviluppo, nonostante un iniziale periodo di studio e prova, prima di iniziare a sviluppare
-il prodotto vero e proprio, quando sono arrivato alla fine dello stage la mia conoscenza teorica e pratica è molto migliorata e questo mi fa guardare alla prime fasi di codifica con
+il prodotto vero e proprio, quando sono arrivato alla fine dello stage la mia conoscenza teorica e pratica è molto migliorata e questo mi fa guardare alle prime fasi di codifica con
 insoddisfazione perchè con le conoscenze ora acquisite sicuramente queste parti si potevano svolgere in modo migliore, ecco perchè prima di ultimare lo stage parlando con il tutor ho
 proposto varie soluzioni per migliorare la codifica del prodotto, per renderlo più solido, consistente, efficiente, efficace e manutenibile. Tutto questo costerà tempo all'azienda ma
-probabilmente sarà del tempo che in futuro verrà risparmiato per eventuali future o manutenzioni da fare. Un altro punto su cui si è discusso con il referente aziendale è quello delle
+probabilmente sarà del tempo che in futuro verrà risparmiato per eventuali feature o manutenzioni da fare. Un altro punto su cui si è discusso con il referente aziendale è quello delle
 funzionalità del prodotto, perchè come è normale che sia, in corso di sviluppo le funzinalità inizialmente previste vengono riviste e rivalutate. Per il nostro prodotto tutto quello
 che era stato pensato in fase di analisi è stato tenuto come funzionalità da preservare anche per il futuro del prodotto, ma qualche aggiunta è stata pensata per renderlo più veloce e
 pratico da utilizzare per i fonici, visto che l'obittivo del prodotto è proprio quello di facilitare il loro lavoro.
 
 \section{Valutazione finale stage}
 \label{sec:valutazione-finale-stage}
-L'eperienza di stage è stata assolutamente positiva, mi ha dato modo di vedere a lato pratico molte delle cose che avevo visto in modo teorico nel corso degli studi. Ho effettuato lo
+L'esperienza di stage è stata assolutamente positiva, mi ha dato modo di vedere a lato pratico molte delle cose che avevo visto in modo teorico nel corso degli studi. Ho effettuato lo
 stage completamente da remoto, in modalità smart-working, e anche da questo punto di vista sono rimasto molto soddisfatto perchè ho potuto apprezzare il potenziale di questa modalità di
-lavoro e secondo la mia opinione spinge maggiormente lo studente in stage a rendersi autonomo dal punto di vista lavorativo, ne migliora le capacità organizzative e consente la flessibilità
+lavoro, che secondo la mia opinione, spinge maggiormente lo studente in stage a rendersi autonomo dal punto di vista lavorativo, ne migliora le capacità organizzative e consente la flessibilità
 rispetto agli orari. In un modo di lavoro dove si guarda più agli obiettivi da raggiungere che al tempo effettivo di lavoro si incorre nel rischio di stimare male le tempistiche per le
 attività da svolgere ma allo stesso tempo si rende maggiormente responsabile il lavoratore, e nel lungo periodo si valutano in modo più oggettivo le competenze e le capacità, è una
 scelta che continuerei a fare anche nel mio futuro lavorativo. Un grande aiuto l'ho ricevuto dal mio tutor e da altri sviluppatori che con grande pazienza e conoscenze degli
